@@ -1,49 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script type="module" src="./js/index.js" defer></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script defer src="./main.js"></script>
 </head>
+
 <body>
     <header>
-    <div class="header-content">
-      <h1 class="white">Kalender</h1>
-    </div>
+        <div class="header-content">
+            <h1 class="white">Kalender</h1>
+        </div>
     </header>
-    
-   <main>
-    <aside></aside>
-       <div class="under-header">
-           <h2 id="today">Lördag 8 Februari</h2>
-           <!-- <div class="list">
-           <h2>Söndag</h2>    
-           <h2>Måndag</h2> 
-           <h2>Tisdag</h2> 
-           <h2>Onsdag</h2> 
-           <h2>Torsdag</h2> 
-           <h2>Fredag</h2> 
-           <h2>Lördag</h2> 
-           </div> -->
-        <i class="fas fa-bars hamburger-icon"></i>
-       </div>
-     
-       <div class="main-container">
-<h2 class="to-do">TO DO</h2>
-       </div>
-   </main>
 
-   <div class="container">
+
+    </div>
+    <main>
+        <aside>
+            <h2 class="white" id="date-day">Lördag 8 Februari</h2>
+            <div class="todos">
+                <div id="todo1">Todo
+                    <button class="todo-btn">Knapp</button>
+                </div>
+                <div id="todo2">Todo
+                    <button class="todo-btn">Knapp</button>
+                </div>
+                <div id="todo2">Todo
+                    <button class="todo-btn">Knapp</button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="test">
+            <div class="under-header">
+                <i class="fas fa-bars hamburger-icon"></i>
+                <h2 class="white" id="today">Lördag 8 Februari</h2>
+                <div class="list white">
+                    <h2>Söndag</h2>
+                    <h2>Måndag</h2>
+                    <h2>Tisdag</h2>
+                    <h2>Onsdag</h2>
+                    <h2>Torsdag</h2>
+                    <h2>Fredag</h2>
+                    <h2>Lördag</h2>
+                </div>
+            </div>
+            <div class="main-container">
+                <h2 class="to-do">TO DO</h2>
+            </div>
+            <div class="calender-container">
+                    <table>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                        </tr>
+                        <tr>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>b</td>
+                            <td>b</td>
+                            <td>b</td>
+                            <td>b</td>
+                            <td>b</td>
+                            <td>b</td>
+                            <td>b</td>
+                        </tr>
+                        <tr>
+                            <td>c</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                        </tr>
+                    </table>
+                </div>   
+            </div>       
+            </main>
+
+
+    <!-- <div class="container">
     <div class="calender">
         <div class="month">
             
-            <p id="leftArrow"><=</p>
+            <p id="leftArrow"></p>
             <div class="date">
                 <h1 id="showMonths"></h1>
                 <p id="showDay"></p>
@@ -62,7 +132,7 @@
         <div class="days">
        </div>
     </div>
-</div>
+</div> -->
 
 
 
