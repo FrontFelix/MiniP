@@ -1,5 +1,7 @@
-const date = new Date();
-const renderCalender = () => {
+
+
+    const date = new Date();
+    const renderCalender = () => {
     date.setDate(1);
     const month = date.getMonth();
     
@@ -33,7 +35,7 @@ const renderCalender = () => {
         "December",
     ];
     
-    document.getElementById("showMonths").innerHTML =[date.getMonth()];
+    document.getElementById("showMonths").innerHTML = months[date.getMonth()];
     
     document.getElementById("showDay").innerHTML = new Date().toDateString();
     
