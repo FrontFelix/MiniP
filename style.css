@@ -86,7 +86,6 @@ main {
 
 .list {
     display: none;
-
 }
 
 aside {
@@ -125,11 +124,7 @@ aside {
     }
 
     .under-header {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-
+       display: none;
     }
 
     .to-do {
@@ -141,8 +136,9 @@ aside {
     }
 
 
-    #date-day {
+    #showDay {
         margin-top: 4rem;
+        font-size: var( --fontMedium);
     }
 
     #today {
@@ -169,7 +165,7 @@ aside {
         margin-right: 1.6rem;
     }
 
-    .test {
+    .right-main {
         width: 100%;
     }
 
@@ -179,194 +175,116 @@ aside {
         margin-top: 4rem;
         justify-content: center;
     }
+    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .calender-container td{
 
-    }
+html {
+    font-size: 62, 5%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: var( --Dark);
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calender {
+    width: 45rem;
+    height: 40rem;
+    background-color: var( --Dark);
+}
+
+.month {
+    width: 100%;
+    height: 3rem;
+    background-color: var( --Dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.month p {
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: -2.9rem;
+}
+
+#leftArrow, #rightArrow{
+    font-size: 1.5rem;
+}
+
+.month h1 {
+    font: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.veckodagar {
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    margin-left: 1.8rem;
+    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto ;
+}
+
+.veckodagar div {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;  
+}
+
+.days {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+}
+
+.days div {
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    height: 5rem;
+    display: flex;
+    justify-content: end;
+    padding: 0.3rem;
+    background-color: var(--mainBlue);
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    color: #C2FFF9;
+    transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today) {
+    background-color: var(--lightDark);
+    cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+    opacity: 0;
+}
+
+.today {
+    background-color: var(--currentGold) !important;
+}
+
 }
 
 @media screen and (min-width: 1000px) {}
 
-
-/* Calender
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-
-    html {
-        font-size: 62, 5%;
-    }
-
-
-    .container {
-        width: 100%;
-        height: 100%;
-        background-color: #12121f;
-        color: #eee;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .calender {
-        width: 45rem;
-        height: 52rem;
-        background-color: #222227;
-        box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0);
-
-    }
-
-    .month {
-        width: 100%;
-        height: 12rem;
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-        text-align: center;
-
-    }
-
-    .month p {
-        font-size: 2.5rem;
-        cursor: pointer;
-    }
-
-    .month h1 {
-        font: 3rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.2rem;
-        margin-bottom: 1rem;
-    }
-
-    .veckodagar {
-        width: 100%;
-        height: 5rem;
-        padding: 0 0.4rem;
-        display: flex;
-    }
-
-    .veckodagar div {
-        font-size: 1.5rem;
-        font-weight: 400;
-        letter-spacing: 0.1rem;
-        width: calc(44.2rem/7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .days {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0.2rem;
-    }
-
-    .days div {
-        font-size: 1.4rem;
-        margin: 0.3rem;
-        width: calc(40.4rem/7);
-        height: 5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #009dae;
-        width: 90px;
-        height: 90px;
-        border-radius: 10px;
-        color: #C2FFF9;
-        transition: background-color 0.2s;
-    }
-
-    .days div:hover:not(.today) {
-        background-color: cornflowerblue;
-        border: .2rem solid black;
-        cursor: pointer;
-    }
-
-    .prev-date,
-    .next-date {
-        opacity: 0.5;
-    }
-
-    .today {
-        background-color: greenyellow !important;
-    }
-
-
-     CALENDER BOX STYLING 
-    .calenderBox {
-        position: relative;
-        background-color: var(--mainBlue);
-        width: 120px;
-        height: 120px;
-        border-radius: 10px;
-        display: flex;
-        color: var(--lightBlue);
-    }
-
-    .calenderHover {
-        border-radius: 10px;
-        background-color: var(--lightDark);
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: none;
-    }
-
-    .currentDate {
-        background-color: var(--currentGold) !important;
-        color: var(--currentBlack) !important;
-    }
-
-    .pastDate {
-        background-color: var(--pastBlue) !important;
-    }
-
-    .date-info {
-        flex-direction: column;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-    }
-
-    #date-number {
-        float: right;
-    }
-
-    .date-events {
-        display: flex;
-        flex-grow: 1;
-        position: relative;
-    }
-
-    .date-events {
-        margin-top: 40px;
-    }
-
-    .date-events i {
-        padding-left: 2px;
-        padding-right: 2px;
-    }
-
-
-    @media (min-width: 1024px) {
-        .calenderBox {
-            width: 160px;
-            height: 160px;
-        }
-
-        .date-events {
-            margin-top: 80px;
-        }
-    }
-    */
-/* CALENDER BOX STYLING */
+@media screen and (min-width: 1300px) {}

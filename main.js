@@ -33,7 +33,7 @@ const renderCalender = () => {
         "December",
     ];
     
-    document.getElementById("showMonths").innerHTML =[date.getMonth()];
+    document.getElementById("showMonths").innerHTML =months[date.getMonth()];
     
     document.getElementById("showDay").innerHTML = new Date().toDateString();
     
