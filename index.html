@@ -12,6 +12,7 @@
     <script type="module" src="./js/index.js" defer></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script defer src="./main.js"></script>
+    <script defer src="./frontend.js"></script>
 </head>
 
 <body>
@@ -20,21 +21,43 @@
             <h1 class="white">Kalender</h1>
         </div>
     </header>
-
-
     </div>
     <main>
         <aside>
             <p class="white" id="showDay"></p>
             <div class="todos">
+
+                <div>
+                    <button class="todo-btn1 todo-btn" onclick="todo1()">Lägg till</button>
+
+
+                </div>
+
                 <div id="todo1">
-                    <button class="todo-btn">Todo Knapp</button>
+                    <form id="newSubmit">
+                        <input type="date">
+                    </form>
+
                 </div>
-                <div id="todo2">
-                    <button class="todo-btn">Todo Knapp</button>
+                <div>
+                    <button class="todo-btn2 todo-btn" onclick="todo2()">Ändra</button>
                 </div>
+
                 <div id="todo2">
-                    <button class="todo-btn"> Todo Knapp</button>
+                    <form id="editSubmit">
+                        <input type="text">
+                    </form>
+
+                </div>
+                
+                <div>
+                    <button class="todo-btn3 todo-btn" onclick="todo3()">Ta bort</button>
+                </div>
+                <div id="todo3">
+                    <form id="removeSubmit">
+                        <input type="text">
+                    </form>
+
                 </div>
             </div>
         </aside>
@@ -42,47 +65,37 @@
         <div class="right-main">
             <div class="under-header">
                 <i class="fas fa-bars hamburger-icon"></i>
-                <h2 class="white" id="today">Lördag 8 Februari</h2>
-                <div class="list white">
-                    <h2>Söndag</h2>
-                    <h2>Måndag</h2>
-                    <h2>Tisdag</h2>
-                    <h2>Onsdag</h2>
-                    <h2>Torsdag</h2>
-                    <h2>Fredag</h2>
-                    <h2>Lördag</h2>
-                </div>
+                <h2 class="white" id="today"> </h2>
             </div>
             <div class="main-container">
                 <h2 class="to-do">TO DO</h2>
             </div>
-            <div class="calender-container">
-                <div class="container">
-                    <div class="calender">
-                        <div class="month"> 
-                            <p id="leftArrow"><i class="fas fa-chevron-left"></i></p>
-                            <div class="date">
-                                <h1 id="showMonths"></h1>
-                                <p id="showDay"></p>
-                              </div>
-                              <p id="rightArrow"><i class="fas fa-chevron-right"></i></p>
-                          </div>
-                        <div class="veckodagar">
-                          <div>Sön</div>
-                          <div>Mån</div>
-                          <div>Tis</div>
-                          <div>Ons</div>
-                          <div>Tor</div>
-                          <div>Fre</div>
-                          <div>Lör</div>
+            <div class="container">
+                <div class="calender">
+                    <div class="month">
+                        <p id="leftArrow"><i class="fas fa-chevron-left"></i></p>
+                        <div class="date">
+                            <h1 id="showMonths"></h1>
+                            <p id="showDay"></p>
                         </div>
-                        <div class="days">
-                       </div>
+                        <p id="rightArrow"><i class="fas fa-chevron-right"></i></p>
                     </div>
-                </div>   
-                </div>   
-            </div>       
-            </main>
- 
+                    <div class="veckodagar">
+                        <div>Sön</div>
+                        <div>Mån</div>
+                        <div>Tis</div>
+                        <div>Ons</div>
+                        <div>Tor</div>
+                        <div>Fre</div>
+                        <div>Lör</div>
+                    </div>
+                    <div class="days">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
-</html> 
+
+</html>

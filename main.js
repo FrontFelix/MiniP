@@ -1,9 +1,12 @@
+
+
+
+
 const date = new Date();
 const renderCalender = () => {
     date.setDate(1);
     const month = date.getMonth();
-    
-    
+  
     const monthDays = document.querySelector(".days");
     
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -71,3 +74,4 @@ document.getElementById("rightArrow").addEventListener("click",() => {
 })
 
 renderCalender();
+

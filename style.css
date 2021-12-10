@@ -19,7 +19,9 @@
     --smallPadding: 20px;
 }
 
-
+.none {
+    display: none;
+}
 body {
     margin: 0;
     padding: 0;
@@ -92,10 +94,6 @@ aside {
     display: none;
 }
 
-.calender-container {
-    display: none;
-}
-
 
 @media screen and (min-width: 800px) {
 
@@ -111,7 +109,7 @@ aside {
     }
 
     aside {
-        width: 12rem;
+        width: 15rem;
         height: 100vh;
         background-color: var(--headerBlack);
         display: flex;
@@ -124,7 +122,7 @@ aside {
     }
 
     .under-header {
-       display: none;
+        display: none;
     }
 
     .to-do {
@@ -133,12 +131,21 @@ aside {
 
     .todos {
         margin-top: 6rem;
+
+    }
+
+    .todo-btn {
+        background-color: #23333E;
+        color: white;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
 
     #showDay {
         margin-top: 4rem;
-        font-size: var( --fontMedium);
+        font-size: var(--fontMedium);
     }
 
     #today {
@@ -148,13 +155,23 @@ aside {
     #todo1,
     #todo2,
     #todo3 {
-        width: 12rem;
-        height: 3rem;
+        width: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         background-color: #23333E;
         margin-bottom: 1rem;
         color: white;
+        text-align: center;
+        display: none;
     }
 
+    .todos {
+        text-align: center;
+        width: 100%;
+    }
+    .todo-btn {
+        margin-top: 20px;
+    }
     .list {
         display: flex;
         flex-direction: row;
@@ -169,122 +186,130 @@ aside {
         width: 100%;
     }
 
-    .calender-container {
-        display: flex;
-        color: white;
-        margin-top: 4rem;
-        justify-content: center;
+    .container {
+        display: none;
     }
-    
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
+    html {
+        font-size: 62, 5%;
+    }
 
-html {
-    font-size: 62, 5%;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.container {
-    width: 100%;
-    height: 100%;
-    background-color: var( --Dark);
-    color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .container {
+        width: 100%;
+        height: 100%;
+        background-color: var(--Dark);
+        color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.calender {
-    width: 45rem;
-    height: 40rem;
-    background-color: var( --Dark);
-}
+    .calender {
 
-.month {
-    width: 100%;
-    height: 3rem;
-    background-color: var( --Dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    text-align: center;
-}
+        width: 45rem;
+        height: 40rem;
+        background-color: var(--Dark);
+    }
 
-.month p {
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: -2.9rem;
-}
+    .month {
+        width: 100%;
+        height: 3rem;
+        background-color: var(--Dark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        text-align: center;
+    }
 
-#leftArrow, #rightArrow{
-    font-size: 1.5rem;
-}
+    .month p {
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: -2.9rem;
+    }
 
-.month h1 {
-    font: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-}
+    #leftArrow,
+    #rightArrow {
+        font-size: 1.5rem;
+    }
 
-.veckodagar {
-    width: 100%;
-    height: 5rem;
-    padding: 0 0.4rem;
-    margin-left: 1.8rem;
-    display: flex;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto ;
-}
+    .month h1 {
+        font: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+    }
 
-.veckodagar div {
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;  
-}
+    .veckodagar {
+        width: 100%;
+        height: 5rem;
+        padding: 0 0.4rem;
+        margin-left: 1.7rem;
+        display: flex;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto;
+    }
 
-.days {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr); 
-}
+    .veckodagar div {
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+    }
 
-.days div {
-    font-size: 1.4rem;
-    margin: 0.3rem;
-    height: 5rem;
-    display: flex;
-    justify-content: end;
-    padding: 0.3rem;
-    background-color: var(--mainBlue);
-    width: 90px;
-    height: 90px;
-    border-radius: 10px;
-    color: #C2FFF9;
-    transition: background-color 0.2s;
-}
+    .days {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
 
-.days div:hover:not(.today) {
-    background-color: var(--lightDark);
-    cursor: pointer;
-}
+    #todo4 {
+        display: none;
+    }
+    .block1 {
+        display: block !important;
+    }
 
-.prev-date,
-.next-date {
-    opacity: 0;
-}
+    .days div {
+        font-size: 1.4rem;
+        margin: 0.3rem;
+        height: 5rem;
+        display: flex;
+        justify-content: end;
+        padding: 0.3rem;
+        background-color: var(--mainBlue);
+        width: 90px;
+        height: 90px;
+        border-radius: 10px;
+        color: #C2FFF9;
+        transition: background-color 0.2s;
+    }
 
-.today {
-    background-color: var(--currentGold) !important;
-}
+    .days div:hover:not(.today) {
+        background-color: var(--lightDark);
+        cursor: pointer;
+    }
+
+    .prev-date,
+    .next-date {
+        opacity: 0;
+    }
+
+    .today {
+        background-color: var(--currentGold) !important;
+        color: var(--Dark) !important;
+    }
 
 }
 
 @media screen and (min-width: 1000px) {}
 
 @media screen and (min-width: 1300px) {}
+
+
