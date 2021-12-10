@@ -1,5 +1,6 @@
 import { renderCalender, switchDate} from "./date.js";
-import {loadTodo} from "./storage.js"
+
+import {newTodo, loadTodo, removeTodo, editTodo} from "./storage.js"
 
 
 

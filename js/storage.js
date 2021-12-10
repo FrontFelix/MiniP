@@ -6,13 +6,15 @@ export async function loadTodo() {
     
 
 }
-export async function newTodo(activity, year, month, day, id) {
+export async function newTodo(activity, year, month, day, id, title, desc) {
     let obj = {}
     obj["year"] = year
     obj["month"] = month
     obj["day"] = day
     obj["activity"] = activity
     obj["ID"] = id
+    obj["title"] = title
+    obj["desctiption"] = desc
     todo.push(obj)
     localStorage.setItem('TodoList', JSON.stringify(todo))
 }
@@ -24,6 +26,17 @@ export async function removeTodo(idInput) {
             todo = todo.filter(item => item.ID != correctID)
             localStorage.setItem('TodoList', JSON.stringify(todo))
             console.log(todo)
+        }
+    }
+}
+
+export async function editTodo(idInput, activity, title, desc) {
+    for(var i = 0; i < todo.length; i++) {
+        if(idInput === todo[i].ID ) {
+            todo[i].title = title
+            todo[i].desctiption = desc
+            todo[i].activity = activity
+            localStorage.setItem('TodoList', JSON.stringify(todo))
         }
     }
 }
