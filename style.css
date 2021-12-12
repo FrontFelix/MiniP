@@ -141,6 +141,14 @@ aside {
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+    input[type=date] {
+        color: var(--Dark);
+        
+    }
+
+    input {
+        width: 100%;
+    }
 
 
     #showDay {
