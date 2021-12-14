@@ -1,16 +1,7 @@
 var todo = [];
 
-export async function loadTodo() {
-    localStorage.setItem('TodoList', todo)
-
-    
-
-}
-export async function newTodo(activity, year, month, day, id, title, desc) {
+export async function newTodo(activity, id, title, desc) {
     let obj = {}
-    obj["year"] = year
-    obj["month"] = month
-    obj["day"] = day
     obj["activity"] = activity
     obj["ID"] = id
     obj["title"] = title
@@ -21,11 +12,13 @@ export async function newTodo(activity, year, month, day, id, title, desc) {
 
 export async function removeTodo(idInput) {
     for(var i = 0; i < todo.length; i++) {
+        console.log(todo[i].title)
         if(idInput === todo[i].ID ) {
             let correctID = todo[i].ID
             todo = todo.filter(item => item.ID != correctID)
             localStorage.setItem('TodoList', JSON.stringify(todo))
-            console.log(todo)
+            console.log(item.title)
+        }else {
         }
     }
 }
@@ -40,3 +33,18 @@ export async function editTodo(idInput, activity, title, desc) {
         }
     }
 }
+
+
+export async function loadTodo() {
+    todo = JSON.parse(localStorage.getItem('TodoList'))
+    for(var i = 0; i < todo.length; i++) {
+        console.log(todo[i].title)
+        if(idInput === todo[i].ID ) {
+            
+        }else {
+        }
+    }
+}
+
+
+//Ladda in todo, sen för varje ID på todo, leta efter det id på ett kalender datum. Lägg in todo aktiviteten.
