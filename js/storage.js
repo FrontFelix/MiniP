@@ -1,34 +1,62 @@
 var todo = [];
+let todoItem;
+
 
 export async function newTodo(activity, id, title, desc) {
+    let iD = parseInt(id)
     let obj = {}
-    obj["activity"] = activity
-    obj["ID"] = id
-    obj["title"] = title
-    obj["desctiption"] = desc
-    todo.push(obj)
+    let innerlist = []
+    let innerobj = {}
+    obj["ID"] = iD
+    obj["list"] = innerlist
+
+    innerobj["activity"] = activity
+    innerobj["title"] = title
+    innerobj["desc"] = desc
+
+    
+    if (!todo.length) {
+        innerlist.push(innerobj)
+        todo.push(obj)
+    } else {
+        for (todoItem of todo) {
+            innerlist = []
+            if (iD === todoItem.ID) {
+                todoItem.list.push(innerobj)
+            } else if(iD !== todoItem.ID){
+                innerlist.push(innerobj)
+                todo.push(obj)
+            }
+        }
+    }
+
+
+
+
     localStorage.setItem('TodoList', JSON.stringify(todo))
+    let styledDiv
+    styledDiv = document.getElementById(iD)
+    if (!styledDiv) return
+    styledDiv.classList.add('test')
+
 }
 
 export async function removeTodo(idInput) {
-    for(var i = 0; i < todo.length; i++) {
-        console.log(todo[i].title)
-        if(idInput === todo[i].ID ) {
-            let correctID = todo[i].ID
+    for (todoItem of todo) {
+        if (idInput === todoItem.ID) {
+            let correctID = todoItem.ID
             todo = todo.filter(item => item.ID != correctID)
             localStorage.setItem('TodoList', JSON.stringify(todo))
-            console.log(item.title)
-        }else {
         }
     }
 }
 
 export async function editTodo(idInput, activity, title, desc) {
-    for(var i = 0; i < todo.length; i++) {
-        if(idInput === todo[i].ID ) {
-            todo[i].title = title
-            todo[i].desctiption = desc
-            todo[i].activity = activity
+    for (todoItem of todo) {
+        if (idInput === todoItem.ID) {
+            todoItem.title = title
+            todoItem.description = desc
+            todoItem.activity = activity
             localStorage.setItem('TodoList', JSON.stringify(todo))
         }
     }
@@ -37,11 +65,10 @@ export async function editTodo(idInput, activity, title, desc) {
 
 export async function loadTodo() {
     todo = JSON.parse(localStorage.getItem('TodoList'))
-    for(var i = 0; i < todo.length; i++) {
-        console.log(todo[i].title)
-        if(idInput === todo[i].ID ) {
-            
-        }else {
+    if (!todo) return;
+    for (todoItem of todo) {
+        if (document.getElementById(todoItem.ID)) {
+            document.getElementById(todoItem.ID).style.backgroundColor = "blue"
         }
     }
 }

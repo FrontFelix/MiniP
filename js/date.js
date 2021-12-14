@@ -1,4 +1,6 @@
-const date = new Date();
+import { loadTodo } from "./storage.js";
+
+export const date = new Date();
 date.setDate(1);
 export async function renderCalender() {
 
@@ -14,6 +16,7 @@ export async function renderCalender() {
   const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
 
   const nextDays = 7 - lastDayIndex;
+
 
 
   const months = [
@@ -42,10 +45,16 @@ export async function renderCalender() {
   }
 
   for (let i = 1; i <= lastDay; i++) {
-    if (i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()) {
-      days += `<div class = "today">${i}</div>`;
+    if (i === new Date().getDate() && date.getMonth() + 1 === new Date().getMonth() + 1 && date.getFullYear() === new Date().getFullYear()) {
+      let dateMonth = date.getMonth() + 1;
+      dateMonth = ("0" + dateMonth).slice(-2)
+      let id = ("0" + i).slice(-2)
+      days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today">${i}</div>`;
     } else {
-      days += `<div id="${date.getFullYear()}${date.getMonth()}${i}">${i}</div>`;
+      let dateMonth = date.getMonth() + 1;
+      dateMonth = ("0" + dateMonth).slice(-2)
+      let id = ("0" + i).slice(-2)
+      days += `<div id="${date.getFullYear()}${dateMonth}${id}">${i}</div>`;
     }
   }
   for (let j = 1; j <= nextDays; j++) {
@@ -58,12 +67,15 @@ export async function renderCalender() {
 
 
 export async function switchDate() {
-  document.getElementById("leftArrow").addEventListener("click", () => {
+  document.getElementById("leftArrow").addEventListener("click", async () => {
     date.setMonth(date.getMonth() - 1);
-    renderCalender();
+
+    renderCalender()
+    loadTodo()
   })
-  document.getElementById("rightArrow").addEventListener("click", () => {
+  document.getElementById("rightArrow").addEventListener("click", async () => {
     date.setMonth(date.getMonth() + 1);
-    renderCalender();
+    renderCalender()
+    loadTodo()
   })
 }
