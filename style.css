@@ -1,70 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-    --mainBlue: #009DAE;
-    --lightBlue: #C2FFF9;
-    --Dark: #233038;
-    --lightDark: #487997;
-    --pastBlue: #295D63;
-    --currentGold: #FFE652;
-    --headerBlack: #2D3B44;
-    --asideBlack: #23333E;
+  --mainBlue: #009dae;
+  --lightBlue: #c2fff9;
+  --Dark: #233038;
+  --lightDark: #487997;
+  --pastBlue: #295d63;
+  --currentGold: #ffe652;
+  --headerBlack: #2d3b44;
+  --asideBlack: #23333e;
 
+  --fontBig: 28px;
+  --ffBold: 900;
+  --fontMedium: 18px;
+  --fontSmall: 5px;
 
-    --fontBig: 28px;
-    --ffBold: 900;
-    --fontMedium: 18px;
-    --fontSmall: 5px;
-
-    --smallPadding: 20px;
+  --smallPadding: 20px;
 }
 
 .none {
-    display: none;
+  display: none;
 }
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 /* Header */
 header {
-    padding: var(--smallPadding);
-    width: 100%;
-    background-color: var(--mainBlue);
+  padding: var(--smallPadding);
+  width: 100%;
+  background-color: var(--mainBlue);
 }
 
 .header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .under-header {
-    padding: var(--smallPadding);
-    background-color: var(--asideBlack);
-    height: 4rem;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+  padding: var(--smallPadding);
+  background-color: var(--asideBlack);
+  height: 4rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .hamburger-icon {
-    color: white;
-    font-size: 1.7rem;
+  color: white;
+  font-size: 1.7rem;
 }
 
 h1 {
-    font-size: var(--fontBig) !important;
-    text-align: center;
+  font-size: var(--fontBig) !important;
+  text-align: center;
 }
 
 /* Header */
@@ -72,252 +71,326 @@ h1 {
 /* Aside - Main */
 
 main {
-    background-color: var(--Dark);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--Dark);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .to-do {
-    display: flex;
-    justify-content: center;
-    color: white;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 1rem;
 }
 
 .list {
-    display: none;
+  display: none;
 }
 
 aside {
+  display: none;
+}
+
+@media screen and (min-width: 810px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+  }
+
+  aside {
+    width: 15rem;
+    height: 100vh;
+    background-color: var(--headerBlack);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger-icon {
+    display: none !important;
+  }
+
+  .under-header {
     display: none;
+  }
+
+  .to-do {
+    display: none;
+  }
+
+  .todos {
+    margin-top: 6rem;
+  }
+
+  .todo-btn {
+    background-color: #23333e;
+    color: white;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .todo-blocks {
+    display: none;
+  }
+
+  input[type="date"] {
+    color: var(--Dark);
+  }
+
+  input {
+    width: 90%;
+  }
+
+  form {
+    color: black;
+  }
+
+  .add-todo {
+    color: white;
+  }
+
+  #showDay {
+    margin-top: 4rem;
+    font-size: var(--fontMedium);
+  }
+
+  #today {
+    display: none;
+  }
+
+  #todo1,
+  #todo2,
+  #todo3 {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #23333e;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+    display: none;
+  }
+
+  .todos {
+    text-align: center;
+    width: 100%;
+  }
+  .todo-btn {
+    margin-top: 20px;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+  }
+
+  .list h2 {
+    margin-right: 1.6rem;
+  }
+
+  .right-main {
+    width: 100%;
+  }
+
+  .container {
+    display: none;
+  }
+
+  /* calender     */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--Dark);
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+
+  .calender {
+    width: 45rem;
+    height: 40rem;
+    background-color: var(--Dark);
+  }
+
+  .month {
+    width: 100%;
+    height: 3rem;
+    background-color: var(--Dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .month p {
+    font-size: 3rem;
+    cursor: pointer;
+    margin-top: -2.9rem;
+  }
+
+  #leftArrow,
+  #rightArrow {
+    font-size: 1.5rem;
+  }
+
+  .month h1 {
+    font: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .veckodagar {
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    margin-left: 1.3rem;
+    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    gap: 4.5rem;
+  }
+
+  .veckodagar div {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+
+  .days {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+
+  .days div {
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    height: 5rem;
+    display: flex;
+    justify-content: end;
+    padding: 0.3rem;
+    background-color: var(--mainBlue);
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    color: #c2fff9;
+    transition: background-color 0.2s;
+  }
+
+  .days div:hover:not(.today) {
+    background-color: var(--lightDark);
+    cursor: pointer;
+  }
+
+  .prev-date,
+  .next-date {
+    opacity: 0;
+  }
+
+  .today {
+    background-color: var(--currentGold) !important;
+    color: var(--Dark) !important;
+  }
 }
 
+@media screen and (max-width: 1100px) {
+  .calender {
+    width: 30rem;
+    height: 30rem;
+    background-color: var(--Dark);
+  }
 
-@media screen and (min-width: 800px) {
+  .days {
+    gap: 0.1rem;
+  }
 
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    main {
-        display: flex;
-        flex-direction: row;
-    }
-
-    aside {
-        width: 15rem;
-        height: 100vh;
-        background-color: var(--headerBlack);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hamburger-icon {
-        display: none !important;
-    }
-
-    .under-header {
-        display: none;
-    }
-
-    .to-do {
-        display: none;
-    }
-
-    .todos {
-        margin-top: 6rem;
-
-    }
-
-    .todo-btn {
-        background-color: #23333E;
-        color: white;
-        width: 100%;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-    input[type=date] {
-        color: var(--Dark);
-        
-    }
-
-    input {
-        width: 100%;
-    }
-
-
-    #showDay {
-        margin-top: 4rem;
-        font-size: var(--fontMedium);
-    }
-
-    #today {
-        display: none;
-    }
-
-    #todo1,
-    #todo2,
-    #todo3 {
-        width: 100%;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        background-color: #23333E;
-        margin-bottom: 1rem;
-        color: white;
-        text-align: center;
-        display: none;
-    }
-
-    .todos {
-        text-align: center;
-        width: 100%;
-    }
-    .todo-btn {
-        margin-top: 20px;
-    }
-    .list {
-        display: flex;
-        flex-direction: row;
-        padding-left: 1rem;
-    }
-
-    .list h2 {
-        margin-right: 1.6rem;
-    }
-
-    .right-main {
-        width: 100%;
-    }
-
-    .container {
-        display: none;
-    }
-
-    html {
-        font-size: 62, 5%;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .container {
-        width: 100%;
-        height: 100%;
-        background-color: var(--Dark);
-        color: #eee;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .calender {
-
-        width: 45rem;
-        height: 40rem;
-        background-color: var(--Dark);
-    }
-
-    .month {
-        width: 100%;
-        height: 3rem;
-        background-color: var(--Dark);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-        text-align: center;
-    }
-
-    .month p {
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: -2.9rem;
-    }
-
-    #leftArrow,
-    #rightArrow {
-        font-size: 1.5rem;
-    }
-
-    .month h1 {
-        font: 2rem;
-        text-transform: uppercase;
-        letter-spacing: 0.2rem;
-        margin-bottom: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .veckodagar {
-        width: 100%;
-        height: 5rem;
-        padding: 0 0.4rem;
-        margin-left: 1.7rem;
-        display: flex;
-        display: grid;
-        grid-template-columns: auto auto auto auto auto auto auto;
-    }
-
-    .veckodagar div {
-        font-size: 1.5rem;
-        font-weight: 400;
-        letter-spacing: 0.1rem;
-    }
-
-    .days {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-    }
-
-    #todo4 {
-        display: none;
-    }
-    .block1 {
-        display: block !important;
-    }
-
-    .days div {
-        font-size: 1.4rem;
-        margin: 0.3rem;
-        height: 5rem;
-        display: flex;
-        justify-content: end;
-        padding: 0.3rem;
-        background-color: var(--mainBlue);
-        width: 90px;
-        height: 90px;
-        border-radius: 10px;
-        color: #C2FFF9;
-        transition: background-color 0.2s;
-    }
-
-    .days div:hover:not(.today) {
-        background-color: var(--lightDark);
-        cursor: pointer;
-    }
-
-    .prev-date,
-    .next-date {
-        opacity: 0;
-    }
-
-    .today {
-        background-color: var(--currentGold) !important;
-        color: var(--Dark) !important;
-    }
-
+  .days div {
+    width: 4.2rem;
+    height: 4.2rem;
+    gap: 1rem;
+  }
+  .veckodagar {
+    display: grid;
+    gap: 2.2rem;
+    margin-left: 1rem;
+  }
 }
 
-@media screen and (min-width: 1000px) {}
+#todo4 {
+  display: none;
+}
+.block1 {
+  display: block !important;
+}
+@media screen and (max-width: 810px) {
+  .calender {
+    display: none;
+  }
 
-@media screen and (min-width: 1300px) {}
+  .to-do {
+    padding-top: 2rem;
+  }
 
+  .todo-blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+  }
 
+  .todo-block1 {
+    padding-top: 1rem;
+    text-align: left;
+  }
+
+  .todo-container1 {
+    padding: 8rem;
+    background-color: #ffe652;
+    color: black;
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .todo-block2 {
+    padding-top: 1rem;
+    text-align: left;
+  }
+
+  .todo-container2 {
+    padding: 8rem;
+    background-color: #009dae;
+    border-radius: 6px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+}
+/*drop menu*/
+#dropmenu {
+  display: none;
+}

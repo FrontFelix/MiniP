@@ -16,6 +16,12 @@ function todo3() {
 
 }
 
+function dropmenu() {
+    let down = document.getElementById('dropmenu');
+    down.classList.toggle('block1')
+}
+
+
 
 
 
