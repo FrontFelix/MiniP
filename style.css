@@ -1,34 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-    --mainBlue: #009DAE;
-    --lightBlue: #C2FFF9;
-    --Dark: #233038;
-    --lightDark: #487997;
-    --pastBlue: #295D63;
-    --currentGold: #FFE652;
-    --headerBlack: #2D3B44;
+  --mainBlue: #009dae;
+  --lightBlue: #c2fff9;
+  --Dark: #233038;
+  --lightDark: #487997;
+  --pastBlue: #295d63;
+  --currentGold: #ffe652;
+  --headerBlack: #2d3b44;
+  --asideBlack: #23333e;
 
-
-    --fontBig: 28px;
-    --ffBold: 900;
-    --fontMedium: 18px;
-    --fontSmall: 5px;
-
-
-    --smallPadding: 20px;
-}
-
-
-body {
-    margin: 0;
+  --fontBig: 28px;
+  --ffBold: 900;
+  --fontMedium: 18px;
+  --fontSmall: 5px;
+  --smallPadding: 20px;
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
+.none {
+  display: none;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.white {
+  color: white;
+}
+
+.block1 {
+  display: block !important;
+}
 .day-active {
     display: flex;
     flex-direction: column;
@@ -44,56 +52,60 @@ body {
     color: white;
 }
 
+/* Header */
 header {
-    padding: var(--smallPadding);
-    width: 100%;
-    background-color: var(--mainBlue);
+  padding: var(--smallPadding);
+  width: 100%;
+  background-color: var(--mainBlue);
 }
 
 .header-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .under-header {
-    padding: var(--smallPadding);
-    background-color: var(--headerBlack);
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
+  padding: var(--smallPadding);
+  background-color: var(--asideBlack);
+  height: 4rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
-main {
-    background-color: var(--Dark);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.hamburger-icon{
-    color: white;
-    font-size: 1.7rem;
+.hamburger-icon {
+  color: white;
+  font-size: 1.7rem;
 }
 
 h1 {
-    font-size: var(--fontBig) !important;
-    text-align: center;
+  font-size: var(--fontBig) !important;
+  text-align: center;
 }
 
-#today {
-    color: white;
+main {
+  background-color: var(--Dark);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .to-do {
-    display: flex;
-    justify-content: center;
-    color: white; 
-    margin-top: 1rem;  
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 1rem;
 }
 
+aside {
+  display: none;
+}
 
+#dropmenu {
+  display: none;
+}
 .test {
     background-color: blue !important;
 }
@@ -126,80 +138,165 @@ h1 {
         
 }
 
-    @media screen and (min-width: 1000px) {
 
+@media screen and (min-width: 810px) {
+  
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-   /* Calender */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  .under-header {
+    display: none;
+  }
 
+  .hamburger-icon {
+    display: none !important;
+  }
 
-html {
-    font-size: 62,5%;
-}
+/* MAIN - SIDEBAR */
+  main {
+    display: flex;
+    flex-direction: row;
+  }
 
-.container {
+  .right-main {
+    width: 100%;
+  }
+
+  aside {
+    width: 15rem;
+    background-color: var(--headerBlack);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #showDay {
+    margin-top: 4rem;
+    font-size: var(--fontMedium);
+  }
+
+  .container {
     width: 100%;
     height: 100%;
-    background-color: #12121f;
+    background-color: var(--Dark);
     color: #eee;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+  }
+
+  /* TODOS */
+  .to-do {
+    display: none;
+  }
+
+  .todos {
+    margin-top: 6rem;
+  }
+
+  .todo-btn {
+    background-color: #23333e;
+    color: white;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .todo-blocks {
+    display: none;
+  }
+
+  input[type="date"] {
+    color: var(--Dark);
+  }
+
+  input {
+    width: 90%;
+  }
+
+  form {
+    color: black;
+  }
+
+  #todo1,
+  #todo2,
+  #todo3 {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #23333e;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+    display: none;
+  }
+
+  .add-todo {
+    color: white;
+  }
+
+  .todos {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .todo-btn {
+    margin-top: 20px;
+  }
+
+  /* CALENDER */
+  .calender {
+    background-color: var(--Dark);
+    margin-top: 3rem;
+  }
+
+  .month {
+    width: 100%;
+    height: 3rem;
+    background-color: var(--Dark);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-}
+    padding: 0 2rem;
+    text-align: center;
+  }
 
-.calender {
-    width: 45rem;
-    height: 52rem;
-    background-color: #222227;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0);
-
-}
-
-.month {
-   width: 100%;
-   height: 12rem;
-   background-color:black;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 0 2rem;
-   text-align: center;
-   
-}
-
-.month p {
-    font-size: 2.5rem;
+  .month p {
+    font-size: 3rem;
     cursor: pointer;
-}
+    margin-top: -2.9rem;
+  }
 
-.month h1 {
-    font: 3rem;
-    font-weight: 400;
+  #leftArrow,
+  #rightArrow {
+    font-size: 1.5rem;
+  }
+
+  .month h1 {
+    font: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-}
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
 
-.veckodagar {
+  .veckodagar {
     width: 100%;
     height: 5rem;
-    padding: 0 0.4rem;
     display: flex;
-}
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    gap: 3rem;
+  }
 
-.veckodagar div {
+  .veckodagar div {
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
-    width: calc(44.2rem/7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  }
 
 .days {
     display: grid;
@@ -209,7 +306,7 @@ html {
     
 }
 
-.days div {
+  .days div {
     font-size: 1.4rem;
     margin: 0.3rem;
     height: 5rem;
@@ -220,150 +317,93 @@ html {
     width: 90px;
     height: 90px;
     border-radius: 10px;
-    color: #C2FFF9;
-    transition: background-color 0.2s ;
-}
+    color: #c2fff9;
+    transition: background-color 0.2s;
+  }
 
-.days div:hover:not(.today) {
-    background-color:cornflowerblue;
-    border:  .2rem solid black ;
+  .days div:hover:not(.today) {
+    background-color: var(--lightDark);
     cursor: pointer;
-}
+  }
 
 .prev-date,
 .next-date{
     opacity:0 ;
 }
 
-.today {
-    background-color: greenyellow !important;
-}
-
-
-/* CALENDER BOX STYLING */
-.calenderBox {
-    position: relative;
-    background-color: var(--mainBlue);
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-    display: flex;
-    color: var(--lightBlue);
-}
-
-.calenderHover {
-    border-radius: 10px;
-    background-color: var(--lightDark);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: none;
-}
-
-.currentDate {
+  .today {
     background-color: var(--currentGold) !important;
-    color: var(--currentBlack) !important;
+    color: var(--Dark) !important;
+  }
 }
 
-.pastDate {
-    background-color: var(--pastBlue) !important;
-}
-
-.date-info {
-    flex-direction: column;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-#date-number {
-    float: right;
-}
-
-.date-events {
-    display: flex;
-    flex-grow: 1;
-    position: relative;
-}
-
-.date-events {
-    margin-top: 40px;
-}
-
-.date-events i {
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-
-@media (min-width: 1024px) {
-    .calenderBox {
-        width: 160px;
-        height: 160px;
-    }
-
-    .date-events {
-        margin-top: 80px;
-    }
-}
-
-/* CALENDER BOX STYLING */
-
-
-/* header, nav, aside */
-
-.white {
-    color: white;
-}
-
-header {
-    padding: var(--smallPadding);
-    display: flex;
-    width: 100%;
-    background-color: var(--mainBlue);
-    justify-content: space-between;
-}
-
-.under-header {
-    padding: var(--smallPadding);
-    background-color: var(--headerBlack);
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-main {
+@media screen and (max-width: 1100px) {
+  
+  /* CALENDER */
+  .calender {
+    margin-top: 3rem;
     background-color: var(--Dark);
-    height: 100vh;
-    width: 100%;
+  }
+
+  .days {
+    gap: 0.1rem;
+  }
+
+  .days div {
+    width: 4.2rem;
+    height: 4.2rem;
+    gap: 1rem;
+  }
+
+  .veckodagar {
+    display: grid;
+    gap: 2.2rem;
+    margin-left: 1rem;
+  }
 }
 
-.hamburger-icon{
+@media screen and (max-width: 810px) {
+  
+  /* CALENDER */
+  .calender {
+    display: none;
+  }
+
+  /* TODOS */
+  .to-do {
+    padding-top: 2rem;
+  }
+
+  .todo-blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 1.7rem;
-}
+    flex-direction: column;
+  }
 
-h1 {
-    font-size: var(--fontBig) !important;
-    text-align: center;
-}
+  .todo-block1 {
+    padding-top: 1rem;
+    text-align: left;
+  }
 
-@media screen and (min-width: 800px) {
-    .list{
-        display: flex;
-        flex-direction: row;
-        color: white;
-        align-items: center;
-        justify-content: center;
-    }
+  .todo-container1 {
+    padding: 8rem;
+    background-color: #ffe652;
+    color: black;
+    border-radius: 6px;
+    width: 100%;
+  }
 
-    .list h2{
-     margin-right: 4rem;
-    }
+  .todo-block2 {
+    padding-top: 1rem;
+    text-align: left;
+  }
 
-    .hamburger-icon {
-        display: none;
-    }
+  .todo-container2 {
+    padding: 8rem;
+    background-color: #009dae;
+    border-radius: 6px;
+    width: 100%;
+  }
 }

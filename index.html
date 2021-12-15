@@ -1,104 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script type="module" src="./js/index.js" defer></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="./main.js"></script>
+    <script defer src="./frontend.js"></script>
 </head>
+
 <body>
     <header>
-    <div class="header-content">
-      <h1 class="white">Kalender</h1>
-    </div>
-    </header>
-    
-   <main>
-    <aside></aside>
-       <div class="under-header">
-           <h2 id="today">Lördag 8 Februari</h2>
-           <!-- <div class="list">
-           <h2>Söndag</h2>    
-           <h2>Måndag</h2> 
-           <h2>Tisdag</h2> 
-           <h2>Onsdag</h2> 
-           <h2>Torsdag</h2> 
-           <h2>Fredag</h2> 
-           <h2>Lördag</h2> 
-           </div> -->
-        <i class="fas fa-bars hamburger-icon"></i>
-       </div>
-     
-       <div class="main-container">
-<h2 class="to-do">TO DO</h2>
-       </div>
-   </main>
-
-   <div class="container">
-    <div class="calender">
-        <div class="month">
-            
-            <p id="leftArrow"><=</p>
-            <div class="date">
-                <h1 id="showMonths"></h1>
-                <p id="showDay"></p>
-              </div>
-              <p id="rightArrow">=></p>
-          </div>
-        <div class="veckodagar">
-          <div>Sön</div>
-          <div>Mån</div>
-          <div>Tis</div>
-          <div>Ons</div>
-          <div>Tor</div>
-          <div>Fre</div>
-          <div>Lör</div>
+        <div class="header-content">
+            <h1 class="white">Kalendern</h1>
         </div>
-        <div class="days">
-       </div>
+    </header>
     </div>
+    <main>
+        <aside>
+            <!-- TODOS -->
+            <p class="white" id="showDay"></p>
+            <div class="todos">
+
+                <div>
+                    <button class="todo-btn1 todo-btn" onclick="todo1()">Lägg till</button>
+                </div>
+
+                <div id="todo1">
+                    <form id="newSubmit">
+                        <label for="date"></label>
+                        <input type="date" placeholder="Datum"> <br><br>
+                        <label for="title"></label>
+                        <input type="title" placeholder="Titel"> <br><br>
+                        <label for="text"></label>
+                        <input type="text" placeholder="Beskrivning"> <br><br>
+                        <button class="add-todo" type="submit">Lägg till TODO</button>
+                    </form>
+
+                </div>
+                <div>
+                    <button class="todo-btn2 todo-btn" onclick="todo2()">Ändra</button>
+                </div>
+
+                <div id="todo2">
+                    <form id="editSubmit">
+                        <label for="date"></label>
+                        <input type="date"> <br><br>
+                        <label for="title"></label>
+                        <input type="title" placeholder="Ändra titel"> <br><br>
+                        <label for="text"></label>
+                        <input type="text" placeholder="Ändra beskrivning"> <br><br>
+                        <button class="add-todo" type="submit">Ändra TODO</button>
+                    </form>
+
+                </div>
+                
+                <div>
+                    <button class="todo-btn3 todo-btn" onclick="todo3()">Ta bort</button>
+                </div>
+                <div id="todo3">
+                    <form id="removeSubmit">
+                        <input type="date"> <br><br>
+                        <button class="add-todo" type="submit">Ta bort TODO</button>
+                    </form>
+
+                </div>
+            </div>
+             <!-- TODOS -->
+        </aside>
+
+        <div class="right-main">
+            <div class="under-header">
+             
+                <!-- DROPMENU -->
+            <div>
+                <button onclick="dropmenu()" ><i class="fas fa-bars hamburger-icon"></i></button>
+              </div> 
+              <div id="dropmenu" >
+              <form action="">test</form>            
+              </div>   
+                </div>
+                 <!-- DROPMENU -->  
+                
+                    <!-- CALENDER -->   
+            <div class="main-container">
+                <h2 class="to-do">TO DO</h2>
+            </div>
+            <div class="container">
+                <div class="calender">
+                    <div class="month">
+                        <p id="leftArrow"><i class="fas fa-chevron-left"></i></p>
+                        <div class="date">
+                            <h1 id="showMonths"></h1>
+                            <p id="showDay"></p>
+                        </div>
+                        <p id="rightArrow"><i class="fas fa-chevron-right"></i></p>
+                    </div>
+                    <div class="veckodagar">
+                        <div>Sön</div>
+                        <div>Mån</div>
+                        <div>Tis</div>
+                        <div>Ons</div>
+                        <div>Tor</div>
+                        <div>Fre</div>
+                        <div>Lör</div>
+                    </div>
+                    <div class="days">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CALENDER -->   
+
+<!-- TODOS MOBILE VERSION -->
+        <div class="todo-blocks">
+<div class="todo-block1">
+<h2>Idag</h2>
+<div class="todo-container1">
+<h2>TO DO 1</h2>
+
+</div>
+</div>
+<div class="todo-block2">
+<h2>Nästkommande</h2>
+<div class="todo-container2">
+    <h2>TO DO 2</h2>
+</div>
 </div>
 
-
-<form action="" id="testForm" style="margin-top: 300px;">
-    <input required type="date" name="" id="dateTest">
-    <button type="submit">Teästa</button>
-</form>
-
-
-
-
-
-
-
-
-    <!-- <aside class="sidebar">
-        <div class="todos">
-            <div><i id="icon" class="fas fa-briefcase"></i></div>   
-            <div id=""></div>   
-            <div id="todo2"></div>  
-            <div id="todo3"></div>  
         </div>
-    </aside>
-    
-  <div class="calenderBox m-10 currentDate">
-        <div class="date-info">
-            <div class="date-number">
-                <p id="date-number">1</p>
-            </div>
-            <div class="date-events">
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-shopping-cart"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-        </div>
-        <div class="calenderHover">
-        </div>
-    </div>
+<!-- TODOS MOBILE VERSION -->
+    </main>
+
 </body>
+
 </html>
