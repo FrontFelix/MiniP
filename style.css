@@ -37,6 +37,20 @@ body {
 .block1 {
   display: block !important;
 }
+.day-active {
+    display: flex;
+    flex-direction: column;
+}
+.day-active p {
+    width: 30px;
+    font-size: 0.9rem;
+}
+
+/* header, nav, aside */
+
+.white { 
+    color: white;
+}
 
 /* Header */
 header {
@@ -91,6 +105,37 @@ aside {
 
 #dropmenu {
   display: none;
+}
+.test {
+    background-color: blue !important;
+}
+
+
+@media screen and (min-width: 800px) {
+   
+    main{
+        display: flex;
+        flex-direction: row;
+        }
+        
+    aside{
+       width: 15rem;
+       height: 100vh;
+       background-color:var(--headerBlack);
+    }
+        
+        .hamburger-icon{
+            display: none;
+        }
+    
+        .under-header{
+            width: 100%;
+        }
+        
+        .to-do {
+            display: none;
+        }
+        
 }
 
 
@@ -253,12 +298,13 @@ aside {
     letter-spacing: 0.1rem;
   }
 
-  .days {
-    width: 100%;
+.days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1rem;
-  }
+    width: 100%;
+ 
+    
+}
 
   .days div {
     font-size: 1.4rem;
@@ -266,8 +312,8 @@ aside {
     height: 5rem;
     display: flex;
     justify-content: end;
-    padding: 0.3rem;
-    background-color: var(--mainBlue);
+    padding: 0.2rem;
+    background-color:#009dae;
     width: 90px;
     height: 90px;
     border-radius: 10px;
@@ -280,10 +326,10 @@ aside {
     cursor: pointer;
   }
 
-  .prev-date,
-  .next-date {
-    opacity: 0;
-  }
+.prev-date,
+.next-date{
+    opacity:0 ;
+}
 
   .today {
     background-color: var(--currentGold) !important;
