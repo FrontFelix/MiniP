@@ -1,4 +1,5 @@
-![Banner.](/Mini_Projekt.png)
+
+![Mini_Projekt](https://user-images.githubusercontent.com/90619352/146188164-e71f9ae9-ca59-4ec4-a785-1532b7fccafe.png)
 
 <br>
 
