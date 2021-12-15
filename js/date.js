@@ -1,5 +1,6 @@
 import { loadTodo } from "./storage.js";
 
+
 export const date = new Date();
 date.setDate(1);
 export async function renderCalender() {
@@ -49,33 +50,58 @@ export async function renderCalender() {
       let dateMonth = date.getMonth() + 1;
       dateMonth = ("0" + dateMonth).slice(-2)
       let id = ("0" + i).slice(-2)
-      days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today">${i}</div>`;
+      days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active">${i}</div>`;
     } else {
       let dateMonth = date.getMonth() + 1;
       dateMonth = ("0" + dateMonth).slice(-2)
       let id = ("0" + i).slice(-2)
-      days += `<div id="${date.getFullYear()}${dateMonth}${id}">${i}</div>`;
+      days += `<div class="day-active" id="${date.getFullYear()}${dateMonth}${id}">${i}</div>`;
     }
   }
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
-
-
 }
 
 
 export async function switchDate() {
   document.getElementById("leftArrow").addEventListener("click", async () => {
     date.setMonth(date.getMonth() - 1);
-
+    if(date.getMonth() == 11) {
+      date.setFullYear(date.getFullYear())
+    }
     renderCalender()
     loadTodo()
+    await renderHolidays(date.getFullYear())
   })
   document.getElementById("rightArrow").addEventListener("click", async () => {
     date.setMonth(date.getMonth() + 1);
+    if(date.getMonth() == 0) {
+      date.setFullYear(date.getFullYear())
+    }
     renderCalender()
     loadTodo()
+    await renderHolidays(date.getFullYear())
   })
 }
+
+export async function renderHolidays(year) {
+  const response = await fetch(`http://sholiday.faboul.se/dagar/v2.1/${year}`);
+  const data = await response.json();
+  const holidays = data.dagar.filter((day) => day.helgdag);
+
+  for (const day of holidays) {
+    let datum = day.datum
+    datum = datum.replace('-', '');
+    datum = datum.replace('-', '')
+    let selectedDiv = document.getElementById(datum)
+    let p = document.createElement('p');
+    if(selectedDiv) {
+      p.innerHTML = day.helgdag;
+      p.setAttribute('id', 'holiday');
+      selectedDiv.append(p)
+    }
+  }
+}
+

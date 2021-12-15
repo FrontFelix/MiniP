@@ -29,6 +29,15 @@ body {
 }
 
 
+.day-active {
+    display: flex;
+    flex-direction: column;
+}
+.day-active p {
+    width: 30px;
+    font-size: 0.9rem;
+}
+
 /* header, nav, aside */
 
 .white { 
