@@ -29,6 +29,15 @@ body {
 }
 
 
+.day-active {
+    display: flex;
+    flex-direction: column;
+}
+.day-active p {
+    width: 30px;
+    font-size: 0.9rem;
+}
+
 /* header, nav, aside */
 
 .white { 
@@ -82,6 +91,11 @@ h1 {
     justify-content: center;
     color: white; 
     margin-top: 1rem;  
+}
+
+
+.test {
+    background-color: blue !important;
 }
 
 
@@ -188,20 +202,20 @@ html {
 }
 
 .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.2rem;
+ 
+    
 }
 
 .days div {
     font-size: 1.4rem;
     margin: 0.3rem;
-    width: calc(40.4rem/7);
     height: 5rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    padding: 0.2rem;
     background-color:#009dae;
     width: 90px;
     height: 90px;
@@ -218,7 +232,7 @@ html {
 
 .prev-date,
 .next-date{
-    opacity:0.5 ;
+    opacity:0 ;
 }
 
 .today {
