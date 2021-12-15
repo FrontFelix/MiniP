@@ -1,60 +1,38 @@
 var todo = [];
 
+let todoLocal = localStorage.getItem('TodoList') ? JSON.parse(localStorage.getItem('TodoList')) : [];   
+
 export async function newTodo(activity, id, title, desc) {
     let iD = parseInt(id)
     let obj = {}
     let innerlist = []
     let innerobj = {}
 
-    let todoLocal = JSON.parse(localStorage.getItem('TodoList'))
+    //If localStorage empty / unset, return empty array. if not, return localStorage item. I am lost. Quick call? Sure 
     obj["ID"] = iD
     obj["list"] = innerlist
 
     innerobj["activity"] = activity
     innerobj["title"] = title
     innerobj["desc"] = desc
-
-    if(!todo.length) {
-        innerlist.push(innerobj)
-        todo.push(obj)
-    }else {
-        for(var todoItem of todoLocal)  {
-            if(iD === todoItem.ID) {
-                console.log('Match Found')
-                console.log("ID SOM SKAPAS " + iD)
-                console.log("KOLLAR EFTER " + todoItem.ID)
-                todoItem.list.push(innerobj)
-                break;
-            }else {
-                console.log("ID SOM SKAPAS " + iD)
-                console.log("KOLLAR EFTER " + todoItem.ID)
-                innerlist.push(innerobj)
-                todo.push(obj)
-                console.log('Match not Found')
-                break;
-            }
+    
+    if (todoLocal) {
+        let entry = todoLocal.find(x => x.ID === iD);
+        if (!entry) {            
+            innerlist.push(innerobj)
+            todoLocal.push(obj)
+        } else {
+            console.log('If entry exist');
+            entry.list.push(innerobj);
         }
     }
-    /*if (!todo.length) {
-        innerlist.push(innerobj)
-        todo.push(obj)
-    } else {
-        for (todoItem of todoLocal) {
-            innerlist = []
-            if (iD === todoItem.ID) {
-                todoItem.list.push(innerobj)
-            } else if(iD !== todoItem.ID){
-                innerlist.push(innerobj)
-                todo.push(obj)
-            }
-        }
-    }*/
 
-    localStorage.setItem('TodoList', JSON.stringify(todo))
+    localStorage.setItem('TodoList', JSON.stringify(todoLocal)) // @connor
     let styledDiv
     styledDiv = document.getElementById(iD)
     if (!styledDiv) return
     styledDiv.classList.add('test')
+
 
 }
 
@@ -81,9 +59,8 @@ export async function editTodo(idInput, activity, title, desc) {
 
 
 export async function loadTodo() {
-    todo = JSON.parse(localStorage.getItem('TodoList'))
-    if (!todo) return;
-    for (var todoItem of todo) {
+    if (!todoLocal) return;
+    for (var todoItem of todoLocal) {
         if (document.getElementById(todoItem.ID)) {
             document.getElementById(todoItem.ID).style.backgroundColor = "blue"
         }

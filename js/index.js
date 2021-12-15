@@ -21,16 +21,7 @@ formTesr.addEventListener('submit', async function(e) {
 
 
 
-//loadTodo()
 let todoList = JSON.parse(localStorage.getItem('TodoList'))
 if(todoList) {
     await loadTodo()
 }
-
-
-
-// FÅ UT RIKTIGT DATUM
-// Typ av räknare för todos per dag
-// Form Action Submit, få ut alla Inputs
-// Fixa Load funktionen
-
