@@ -1,5 +1,6 @@
 
-![Mini_Projekt](https://user-images.githubusercontent.com/90619352/146188164-e71f9ae9-ca59-4ec4-a785-1532b7fccafe.png)
+![Mini_Projekt_](https://user-images.githubusercontent.com/90619352/146188379-3c7fffa5-da08-4bca-a3f0-99a564fb342e.png)
+
 
 <br>
 
