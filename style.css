@@ -14,24 +14,28 @@
   --ffBold: 900;
   --fontMedium: 18px;
   --fontSmall: 5px;
-
   --smallPadding: 20px;
-}
-
-.none {
-  display: none;
-}
-body {
-  margin: 0;
-  padding: 0;
 }
 
 * {
   font-family: "Roboto", sans-serif;
 }
 
+.none {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .white {
   color: white;
+}
+
+.block1 {
+  display: block !important;
 }
 
 /* Header */
@@ -66,14 +70,10 @@ h1 {
   text-align: center;
 }
 
-/* Header */
-
-/* Aside - Main */
-
 main {
   background-color: var(--Dark);
-  height: 100vh;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -85,43 +85,65 @@ main {
   margin-top: 1rem;
 }
 
-.list {
-  display: none;
-}
-
 aside {
   display: none;
 }
 
+#dropmenu {
+  display: none;
+}
+
+
 @media screen and (min-width: 810px) {
+  
+  /* HEADER */
   header {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  main {
-    display: flex;
-    flex-direction: row;
-  }
-
-  aside {
-    width: 15rem;
-    height: 100vh;
-    background-color: var(--headerBlack);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .under-header {
+    display: none;
   }
 
   .hamburger-icon {
     display: none !important;
   }
 
-  .under-header {
-    display: none;
+/* MAIN - SIDEBAR */
+  main {
+    display: flex;
+    flex-direction: row;
   }
 
+  .right-main {
+    width: 100%;
+  }
+
+  aside {
+    width: 15rem;
+    background-color: var(--headerBlack);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #showDay {
+    margin-top: 4rem;
+    font-size: var(--fontMedium);
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--Dark);
+    color: #eee;
+    display: flex;
+    justify-content: center; 
+  }
+
+  /* TODOS */
   .to-do {
     display: none;
   }
@@ -154,19 +176,6 @@ aside {
     color: black;
   }
 
-  .add-todo {
-    color: white;
-  }
-
-  #showDay {
-    margin-top: 4rem;
-    font-size: var(--fontMedium);
-  }
-
-  #today {
-    display: none;
-  }
-
   #todo1,
   #todo2,
   #todo3 {
@@ -180,50 +189,20 @@ aside {
     display: none;
   }
 
+  .add-todo {
+    color: white;
+  }
+
   .todos {
     text-align: center;
     width: 100%;
   }
+  
   .todo-btn {
     margin-top: 20px;
   }
-  .list {
-    display: flex;
-    flex-direction: row;
-    padding-left: 1rem;
-  }
 
-  .list h2 {
-    margin-right: 1.6rem;
-  }
-
-  .right-main {
-    width: 100%;
-  }
-
-  .container {
-    display: none;
-  }
-
-  /* calender     */
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .container {
-    width: 100%;
-    height: 100%;
-    background-color: var(--Dark);
-    color: #eee;
-    display: flex;
-    justify-content: center;
-    
-    
-  }
-
+  /* CALENDER */
   .calender {
     background-color: var(--Dark);
     margin-top: 3rem;
@@ -313,6 +292,8 @@ aside {
 }
 
 @media screen and (max-width: 1100px) {
+  
+  /* CALENDER */
   .calender {
     margin-top: 3rem;
     background-color: var(--Dark);
@@ -327,6 +308,7 @@ aside {
     height: 4.2rem;
     gap: 1rem;
   }
+
   .veckodagar {
     display: grid;
     gap: 2.2rem;
@@ -334,17 +316,14 @@ aside {
   }
 }
 
-#todo4 {
-  display: none;
-}
-.block1 {
-  display: block !important;
-}
 @media screen and (max-width: 810px) {
+  
+  /* CALENDER */
   .calender {
     display: none;
   }
 
+  /* TODOS */
   .to-do {
     padding-top: 2rem;
   }
@@ -381,11 +360,4 @@ aside {
     border-radius: 6px;
     width: 100%;
   }
-}
-
-@media screen and (min-width: 1300px) {
-}
-/*drop menu*/
-#dropmenu {
-  display: none;
 }

@@ -18,29 +18,28 @@
 <body>
     <header>
         <div class="header-content">
-            <h1 class="white">Kalender</h1>
+            <h1 class="white">Kalendern</h1>
         </div>
     </header>
     </div>
     <main>
         <aside>
+            <!-- TODOS -->
             <p class="white" id="showDay"></p>
             <div class="todos">
 
                 <div>
                     <button class="todo-btn1 todo-btn" onclick="todo1()">Lägg till</button>
-
-
                 </div>
 
                 <div id="todo1">
                     <form id="newSubmit">
                         <label for="date"></label>
-                        <input type="date" placeholder="datum"> <br><br>
+                        <input type="date" placeholder="Datum"> <br><br>
                         <label for="title"></label>
-                        <input type="title" placeholder="titel"> <br><br>
+                        <input type="title" placeholder="Titel"> <br><br>
                         <label for="text"></label>
-                        <input type="text" placeholder="beskrivning"> <br><br>
+                        <input type="text" placeholder="Beskrivning"> <br><br>
                         <button class="add-todo" type="submit">Lägg till TODO</button>
                     </form>
 
@@ -54,9 +53,9 @@
                         <label for="date"></label>
                         <input type="date"> <br><br>
                         <label for="title"></label>
-                        <input type="title" placeholder="ändra titel"> <br><br>
+                        <input type="title" placeholder="Ändra titel"> <br><br>
                         <label for="text"></label>
-                        <input type="text" placeholder="ändra beskrivning"> <br><br>
+                        <input type="text" placeholder="Ändra beskrivning"> <br><br>
                         <button class="add-todo" type="submit">Ändra TODO</button>
                     </form>
 
@@ -73,21 +72,23 @@
 
                 </div>
             </div>
+             <!-- TODOS -->
         </aside>
 
         <div class="right-main">
             <div class="under-header">
-              
+             
+                <!-- DROPMENU -->
             <div>
                 <button onclick="dropmenu()" ><i class="fas fa-bars hamburger-icon"></i></button>
               </div> 
               <div id="dropmenu" >
               <form action="">test</form>            
               </div>   
-              
+                </div>
+                 <!-- DROPMENU -->  
                 
-                
-            </div>
+                    <!-- CALENDER -->   
             <div class="main-container">
                 <h2 class="to-do">TO DO</h2>
             </div>
@@ -115,7 +116,9 @@
                 </div>
             </div>
         </div>
+        <!-- CALENDER -->   
 
+<!-- TODOS MOBILE VERSION -->
         <div class="todo-blocks">
 <div class="todo-block1">
 <h2>Idag</h2>
@@ -132,6 +135,7 @@
 </div>
 
         </div>
+<!-- TODOS MOBILE VERSION -->
     </main>
 
 </body>
