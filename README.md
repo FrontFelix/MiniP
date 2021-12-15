@@ -30,7 +30,3 @@ Användare ska kunna hantera sina `Listor`, genom att kunna lägga till, ta bort
 * *Erik* (https://github.com/matsegard)
  
 
-
-
-OM VI PALLAR
-VÄDER API DAGENS DATUM

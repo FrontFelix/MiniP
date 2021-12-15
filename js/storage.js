@@ -2,7 +2,7 @@ var todo = [];
 
 let todoLocal = localStorage.getItem('TodoList') ? JSON.parse(localStorage.getItem('TodoList')) : [];   
 
-export async function newTodo(activity, id, title, desc) {
+export async function newTodo(id, title, desc) {
     let iD = parseInt(id)
     let obj = {}
     let innerlist = []
@@ -12,7 +12,6 @@ export async function newTodo(activity, id, title, desc) {
     obj["ID"] = iD
     obj["list"] = innerlist
 
-    innerobj["activity"] = activity
     innerobj["title"] = title
     innerobj["desc"] = desc
     

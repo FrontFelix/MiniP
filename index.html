@@ -11,7 +11,6 @@
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script type="module" src="./js/index.js" defer></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="./main.js"></script>
     <script defer src="./frontend.js"></script>
 </head>
 
@@ -35,11 +34,11 @@
                 <div id="todo1">
                     <form id="newSubmit">
                         <label for="date"></label>
-                        <input type="date" placeholder="Datum"> <br><br>
+                        <input required id="newDatum" type="date" placeholder="Datum"> 
                         <label for="title"></label>
-                        <input type="title" placeholder="Titel"> <br><br>
+                        <input required id="newTitel" type="title" placeholder="Titel"> 
                         <label for="text"></label>
-                        <input type="text" placeholder="Beskrivning"> <br><br>
+                        <input id="newDesc" type="text" placeholder="Beskrivning"> 
                         <button class="add-todo" type="submit">Lägg till TODO</button>
                     </form>
 
@@ -51,11 +50,11 @@
                 <div id="todo2">
                     <form id="editSubmit">
                         <label for="date"></label>
-                        <input type="date"> <br><br>
+                        <input type="date"> 
                         <label for="title"></label>
-                        <input type="title" placeholder="Ändra titel"> <br><br>
+                        <input type="title" placeholder="Ändra titel"> 
                         <label for="text"></label>
-                        <input type="text" placeholder="Ändra beskrivning"> <br><br>
+                        <input type="text" placeholder="Ändra beskrivning"> 
                         <button class="add-todo" type="submit">Ändra TODO</button>
                     </form>
 
@@ -66,7 +65,7 @@
                 </div>
                 <div id="todo3">
                     <form id="removeSubmit">
-                        <input type="date"> <br><br>
+                        <input type="date"> 
                         <button class="add-todo" type="submit">Ta bort TODO</button>
                     </form>
 

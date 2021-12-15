@@ -7,18 +7,18 @@ switchDate();
 renderHolidays(date.getFullYear())
 
 
-const date1 = document.getElementById('dateTest')
-const formTesr = document.getElementById('testForm')
-
-
-formTesr.addEventListener('submit', async function(e) {
+const newSubmit = document.getElementById('newSubmit')
+newSubmit.addEventListener('submit',async e => {
     e.preventDefault()
-    let value = date1.value.replace('-', '');
-    let value1 = value.replace('-', '')
-    newTodo("test", value1, "test", "test")
-    console.log(value1)
-})
+    let datum = document.getElementById("newDatum")
+    datum = datum.value.replace('-', '');
+    datum = datum.replace('-', '')
+    let title = document.getElementById('newTitel').value
+    let desc = document.getElementById('newDesc').value
 
+    newTodo(datum,title,desc)
+    newSubmit.reset()
+})
 
 
 let todoList = JSON.parse(localStorage.getItem('TodoList'))
