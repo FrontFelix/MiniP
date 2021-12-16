@@ -50,12 +50,12 @@ export async function renderCalender() {
       let dateMonth = date.getMonth() + 1;
       dateMonth = ("0" + dateMonth).slice(-2)
       let id = ("0" + i).slice(-2)
-      days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active">${i}</div>`;
+      days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active"><p class="calender-number">${i}</p></div>`;
     } else {
       let dateMonth = date.getMonth() + 1;
       dateMonth = ("0" + dateMonth).slice(-2)
       let id = ("0" + i).slice(-2)
-      days += `<div class="day-active" id="${date.getFullYear()}${dateMonth}${id}">${i}</div>`;
+      days += `<div class="day-active" id="${date.getFullYear()}${dateMonth}${id}"><p class="calender-number">${i}</p></div>`;
     }
   }
   for (let j = 1; j <= nextDays; j++) {

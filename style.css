@@ -21,6 +21,7 @@
   font-family: "Roboto", sans-serif;
 }
 
+
 .none {
   display: none;
 }
@@ -37,13 +38,24 @@ body {
 .block1 {
   display: block !important;
 }
+
 .day-active {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+.calender-number{
+  text-align: left !important;
+  font-size: 1.2rem !important;
+}
+
 .day-active p {
-    width: 30px;
-    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    font-size: 0.6rem;
 }
 
 /* header, nav, aside */
@@ -103,21 +115,13 @@ aside {
   display: none;
 }
 
-#dropmenu {
-  display: none;
-}
+
 .test {
     background-color: blue !important;
 }
 
 
 @media screen and (min-width: 800px) {
-   
-    main{
-        display: flex;
-        flex-direction: row;
-        }
-        
     aside{
        width: 15rem;
        height: 100vh;
@@ -141,6 +145,10 @@ aside {
 
 @media screen and (min-width: 810px) {
   
+  /*dropmenu*/
+  .burgermenu {
+    display: none;
+  }
   /* HEADER */
   header {
     display: flex;
@@ -168,6 +176,8 @@ aside {
 
   aside {
     width: 15rem;
+
+    
     background-color: var(--headerBlack);
     display: flex;
     flex-direction: column;
@@ -217,8 +227,17 @@ aside {
     width: 90%;
   }
 
+  
+#newSubmit input, #editSubmit input, #removeSubmit input {
+  display: block;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  margin: 0 auto;
+}
+
   form {
     color: black;
+    
   }
 
   #todo1,
@@ -284,12 +303,12 @@ aside {
   }
 
   .veckodagar {
-    width: 100%;
     height: 5rem;
     display: flex;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
-    gap: 3rem;
+    gap: -0.1rem;
+    text-align: center;
   }
 
   .veckodagar div {
@@ -405,5 +424,8 @@ aside {
     background-color: #009dae;
     border-radius: 6px;
     width: 100%;
+  }
+  aside{
+    display: none;
   }
 }
