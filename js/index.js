@@ -1,6 +1,6 @@
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
-import {newTodo, loadTodo, removeTodo, editTodo} from "./storage.js"
+import {newTodo, loadTodo, removeTodo, editTodo, renderTodoList} from "./storage.js"
 
 renderCalender();
 switchDate();
@@ -21,7 +21,10 @@ newSubmit.addEventListener('submit',async e => {
 })
 
 
+
 let todoList = JSON.parse(localStorage.getItem('TodoList'))
 if(todoList) {
     await loadTodo()
 }
+
+renderTodoList()

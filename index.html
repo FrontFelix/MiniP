@@ -17,28 +17,16 @@
 <body>
     <header>
         <div class="header-content">
-            <h1 class="white">Årets Kalender (German innovation award winner) </h1>
+            <h1>Årets Kalender (German innovation award winner) </h1>
         </div>
     </header>
-    </div>
     <main>
-        <!-- under header/dropmenu-->
-        <div class="under-header">
-         
-            <!-- DROPMENU -->
-        <div>
-            <button class="burgermenu" onclick="dropmenu()" ><i class="fas fa-bars hamburger-icon"></i></button>
-          </div> 
-        
-            </div>
-        <aside id="dropmenu">
-            <p class="white" id="showDay"></p>
+        <aside>
+            <p id="showDay"></p>
+           
             <!-- TODOS -->
-            <div id="dropmenu" >
-            <div class="todos">
-
                 <div>
-                    <button class="todo-btn1 todo-btn" onclick="todo1()">Lägg till</button>
+                    <button class="todo-btn" onclick="todo1()">Lägg till</button>
                 </div>
 
                 <div id="todo1">
@@ -50,49 +38,19 @@
                         <label for="text"></label>
                         <input id="newDesc" type="text" placeholder="Beskrivning">
                         <button class="add-todo" type="submit">Lägg till TODO</button>
-                    </form>
-
-                    
+                    </form> 
                 </div>
-                <div>
-                    <button class="todo-btn2 todo-btn" onclick="todo2()">Ändra</button>
-                </div>
-
-                <div id="todo2">
-                    <form id="editSubmit">
-                        <label for="date"></label>
-                        <input type="date">
-                        <label for="title"></label>
-                        <input type="title" placeholder="Ändra titel">
-                        <label for="text"></label>
-                        <input type="text" placeholder="Ändra beskrivning">
-                        <button class="add-todo" type="submit">Ändra TODO</button>
-                    </form>
-
-                </div>
-                
-                <div>
-                    <button class="todo-btn3 todo-btn" onclick="todo3()">Ta bort</button>
-                </div>
-                <div id="todo3">
-                    <form id="removeSubmit">
-                        <input type="date"> <br><br>
-                        <button class="add-todo" type="submit">Ta bort TODO</button>
-                    </form>
-
-                </div>
-            </div>
+    <!-- Javascript Inputs Here -->
+<div id="todoList" class="todo-list">
         </div>
-             <!-- TODOS -->
+    
         </aside>
+     <!-- TODOS -->
 
         <div class="right-main">
-           
-                 <!-- DROPMENU -->  
                 
                     <!-- CALENDER -->   
             <div class="main-container">
-                <h2 class="to-do">TO DO</h2>
             </div>
             <div class="container">
                 <div class="calender">
@@ -120,24 +78,6 @@
         </div>
         <!-- CALENDER -->   
 
-<!-- TODOS MOBILE VERSION -->
-        <div class="todo-blocks">
-<div class="todo-block1">
-<h2>Idag</h2>
-<div class="todo-container1">
-<h2>TO DO 1</h2>
-
-</div>
-</div>
-<div class="todo-block2">
-<h2>Nästkommande</h2>
-<div class="todo-container2">
-    <h2>TO DO 2</h2>
-</div>
-</div>
-
-        </div>
-<!-- TODOS MOBILE VERSION -->
     </main>
 
 </body>

@@ -19,24 +19,8 @@
 
 * {
   font-family: "Roboto", sans-serif;
-}
-
-
-.none {
-  display: none;
-}
-
-body {
   margin: 0;
   padding: 0;
-}
-
-.white {
-  color: white;
-}
-
-.block1 {
-  display: block !important;
 }
 
 .day-active {
@@ -58,12 +42,6 @@ body {
     font-size: 0.6rem;
 }
 
-/* header, nav, aside */
-
-.white { 
-    color: white;
-}
-
 /* Header */
 header {
   padding: var(--smallPadding);
@@ -77,23 +55,10 @@ header {
   align-items: center;
 }
 
-.under-header {
-  padding: var(--smallPadding);
-  background-color: var(--asideBlack);
-  height: 4rem;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.hamburger-icon {
-  color: white;
-  font-size: 1.7rem;
-}
-
 h1 {
   font-size: var(--fontBig) !important;
   text-align: center;
+  color: white;
 }
 
 main {
@@ -104,51 +69,129 @@ main {
   flex-direction: column;
 }
 
-.to-do {
+aside{
+  width: 100%;
+  height: 100vh;
+  background-color:var(--headerBlack);
   display: flex;
-  justify-content: center;
-  color: white;
-  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
 
-aside {
+#showDay {
+  margin-top: 4rem;
+  font-size: var(--fontMedium);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+  #todo1{
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+    display: none;
+  }
+
+  .todo-btn {
+    background-color: #23333e;
+    color: white;
+    width: 14rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .todo-btn:hover {
+    color: var(--mainBlue);
+  }
+
+  input[type="date"]{
+    color: var(--Dark);
+    padding-left: 0.2rem;
+  }
+  
+  input[type="title"], input[type="text"] {
+    color: var(--Dark);
+    padding-left: 0.2rem;
+    height: 2rem;
+  }
+
+  input {
+    width: 50%;
+  }
+
+  #newSubmit input, #editSubmit input, #removeSubmit input {
+  display: block;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  margin: 0 auto;
+  }
+ 
+  form {
+    color: black;
+  }
+  .add-todo {
+    color: white;
+  }
+  
+.block1{
+  display: block !important;
+}
+
+.right-main{
   display: none;
 }
 
-
-.test {
-    background-color: blue !important;
+.todo{
+  margin-top: 1.2rem;
+  width: 12rem;
+  border-radius: 2px;
+}
+.todo h2{
+  color: white;
+  font-weight: var(--ffBold);
 }
 
+.todo p{
+ padding: 0.3rem;
+ background-color: white;
+}
 
 @media screen and (min-width: 800px) {
-    aside{
-       width: 15rem;
-       height: 100vh;
-       background-color:var(--headerBlack);
-    }
-        
-        .hamburger-icon{
-            display: none;
+  
+  .right-main{
+    display: block;
+  }
+
+        #leftArrow:hover,  #rightArrow:hover {
+          color: var( --mainBlue);
+        } 
+
+        ::placeholder{
+          padding-left: 0.4rem;
         }
-    
-        .under-header{
-            width: 100%;
+
+        ::-webkit-datetime-edit { padding-left: 0.3rem; } 
+
+        .add-todo:hover{
+          color: var(--mainBlue);
         }
-        
-        .to-do {
-            display: none;
-        }
-        
 }
 
 
 @media screen and (min-width: 810px) {
-  
-  /*dropmenu*/
-  .burgermenu {
-    display: none;
+  aside{
+    width: 15rem;
+    height: 100vh;
+    background-color:var(--headerBlack);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  
   /* HEADER */
   header {
     display: flex;
@@ -156,37 +199,21 @@ aside {
     justify-content: center;
   }
 
-  .under-header {
-    display: none;
-  }
-
-  .hamburger-icon {
-    display: none !important;
-  }
-
 /* MAIN - SIDEBAR */
   main {
     display: flex;
     flex-direction: row;
   }
+  #todo1{
+    background-color: #23333e;
+  }
+
+  input {
+    width: 92%;
+  }
 
   .right-main {
     width: 100%;
-  }
-
-  aside {
-    width: 15rem;
-
-    
-    background-color: var(--headerBlack);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #showDay {
-    margin-top: 4rem;
-    font-size: var(--fontMedium);
   }
 
   .container {
@@ -198,74 +225,7 @@ aside {
     justify-content: center; 
   }
 
-  /* TODOS */
-  .to-do {
-    display: none;
-  }
-
-  .todos {
-    margin-top: 6rem;
-  }
-
-  .todo-btn {
-    background-color: #23333e;
-    color: white;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .todo-blocks {
-    display: none;
-  }
-
-  input[type="date"] {
-    color: var(--Dark);
-  }
-
-  input {
-    width: 90%;
-  }
-
   
-#newSubmit input, #editSubmit input, #removeSubmit input {
-  display: block;
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
-  margin: 0 auto;
-}
-
-  form {
-    color: black;
-    
-  }
-
-  #todo1,
-  #todo2,
-  #todo3 {
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #23333e;
-    margin-bottom: 1rem;
-    color: white;
-    text-align: center;
-    display: none;
-  }
-
-  .add-todo {
-    color: white;
-  }
-
-  .todos {
-    text-align: center;
-    width: 100%;
-  }
-  
-  .todo-btn {
-    margin-top: 20px;
-  }
-
   /* CALENDER */
   .calender {
     background-color: var(--Dark);
@@ -321,8 +281,6 @@ aside {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
- 
-    
 }
 
   .days div {
@@ -379,53 +337,14 @@ aside {
     gap: 2.2rem;
     margin-left: 1rem;
   }
-}
 
-@media screen and (max-width: 810px) {
+  .calender-number{
+    font-size: 1.2rem !important;
+  }
   
-  /* CALENDER */
-  .calender {
-    display: none;
-  }
-
-  /* TODOS */
-  .to-do {
-    padding-top: 2rem;
-  }
-
-  .todo-blocks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    flex-direction: column;
-  }
-
-  .todo-block1 {
-    padding-top: 1rem;
-    text-align: left;
-  }
-
-  .todo-container1 {
-    padding: 8rem;
-    background-color: #ffe652;
-    color: black;
-    border-radius: 6px;
-    width: 100%;
-  }
-
-  .todo-block2 {
-    padding-top: 1rem;
-    text-align: left;
-  }
-
-  .todo-container2 {
-    padding: 8rem;
-    background-color: #009dae;
-    border-radius: 6px;
-    width: 100%;
-  }
-  aside{
-    display: none;
+  .day-active p {
+      font-size: 0.4rem;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
   }
 }

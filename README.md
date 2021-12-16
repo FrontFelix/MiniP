@@ -7,6 +7,7 @@
 # MiniProject
 I detta projekt så ska användaren kunna lägga till sina `todos` med datum, titel och beskrivning, användaren ska även kunna ändra sina `todos`samt ta bort. 
 Användaren ska även kunna använda denna kalender i sin `mobil`, så vi har gjort kalendern mobilanpassad. 
+Användaren ska sen kunna se sina `todos`i en listvy, både i `desktop` och i `mobilversion`. 
 
 <br>
 
@@ -19,6 +20,20 @@ Användaren ska även kunna använda denna kalender i sin `mobil`, så vi har gj
 6. Vi använde oss mycket utav `Liveshare` så att utifall om en person fastnat på ett kodstycke så kunde den andra hjälpa till och kanske lösa problemet. 
 7. Efter varje arbetsdag så gjorde vi en `commit` till den `branchen` man hade suttit och kodat i via `GitHub`. 
 8. Innan vi slutade för dagen så bestämde vi för vilken del vi ska arbeta med nästkommande tillfälle. 
+9. Efter vi känt oss mestadels klar med både `frontend-branch` och `JS-branch` så gjorde vi en `merge` till våran `main`.
+10. Efter våran merge så fick vi göra en del justeringar då en del `CSS`inte stämde överens med våran `HTML-kod`.
+
+<br>
+
+## Utmaningar
+Vi stötte på en del utmaningar under projektet. 
+1. En utamning var att få till en `merge` med alla `branches` via `GitHub`. 
+2. En annan utmaning var att länka in `todos` med `JavaScript`.
+
+<br>
+
+## Motivation
+Det som motiverade oss alla i detta projekt var att vi fick möjligheten att lära oss att koda mer i `JavaScript`men också att vi fick vässa våra kunskaper inom `HTML och CSS`.  
 
 <br>
 
