@@ -1,6 +1,6 @@
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
-import {newTodo, loadTodo, removeTodo, editTodo, renderTodoList} from "./storage.js"
+import {newTodo, loadTodo, renderTodoList} from "./storage.js"
 
 renderCalender();
 switchDate();
@@ -18,6 +18,7 @@ newSubmit.addEventListener('submit',async e => {
 
     newTodo(datum,title,desc)
     newSubmit.reset()
+    document.getElementById('todo1').classList.remove('block1')
 })
 
 

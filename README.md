@@ -29,6 +29,7 @@ Användaren ska sen kunna se sina `todos`i en listvy, både i `desktop` och i `m
 Vi stötte på en del utmaningar under projektet. 
 1. En utamning var att få till en `merge` med alla `branches` via `GitHub`. 
 2. En annan utmaning var att länka in `todos` med `JavaScript`.
+3. En till utmaning vi haft under projektet var `todo-listan`. 
 
 <br>
 

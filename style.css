@@ -23,26 +23,29 @@
   padding: 0;
 }
 
+/* Calender */
+
 .day-active {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.calender-number{
+.calender-number {
   text-align: left !important;
   font-size: 1.2rem !important;
 }
 
 .day-active p {
-    text-align: center;
-    width: 100%;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    font-size: 0.6rem;
+  text-align: center;
+  width: 100%;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  font-size: 0.6rem;
 }
 
 /* Header */
+
 header {
   padding: var(--smallPadding);
   width: 100%;
@@ -57,9 +60,11 @@ header {
 
 h1 {
   font-size: var(--fontBig) !important;
-  text-align: center;
+  justify-content: center;
   color: white;
 }
+
+/* Main - Aside */
 
 main {
   background-color: var(--Dark);
@@ -69,15 +74,20 @@ main {
   flex-direction: column;
 }
 
-aside{
+aside {
   width: 100%;
   height: 100vh;
-  background-color:var(--headerBlack);
+  background-color: var(--headerBlack);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.right-main {
+  display: none;
+}
+
+/* Todays date */
 #showDay {
   margin-top: 4rem;
   font-size: var(--fontMedium);
@@ -86,125 +96,179 @@ aside{
   margin-bottom: 1rem;
 }
 
-  #todo1{
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    color: white;
-    text-align: center;
-    display: none;
-  }
+/* Todos */
 
-  .todo-btn {
-    background-color: #23333e;
-    color: white;
-    width: 14rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  .todo-btn:hover {
-    color: var(--mainBlue);
-  }
+.editForm{
+  display: none;
+}
 
-  input[type="date"]{
-    color: var(--Dark);
-    padding-left: 0.2rem;
-  }
-  
-  input[type="title"], input[type="text"] {
-    color: var(--Dark);
-    padding-left: 0.2rem;
-    height: 2rem;
-  }
+.editForm form{
+  padding: 1rem;
+  color: white;
+}
 
-  input {
-    width: 50%;
-  }
+.editForm input {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  background-color: var(--Dark);
+  color: white;
+}
 
-  #newSubmit input, #editSubmit input, #removeSubmit input {
+.editform input[type="title"], 
+.editform input[type="text"]
+ {
+  color: white !important;
+  padding-left: 0.2rem;
+}
+
+.editform input[type="date"] {
+  color: white !important;
+  padding-left: 0.2rem;
+}
+
+.editForm button {
+  color: black;
+}
+
+#todo1 {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
+.todo-btn {
+  background-color: #23333e;
+  color: white;
+  width: 14rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.todo-btn:hover {
+  background-color: var(--mainBlue);
+}
+
+.date-input[type="date"] {
+  color: var(--Dark);
+  padding-left: 0.2rem;
+}
+
+.todo-input[type="title"],
+.todo-input[type="text"] {
+  color: var(--Dark);
+  padding-left: 0.2rem;
+  height: 2rem;
+}
+
+input {
+  width: 50%;
+}
+
+#newSubmit input,
+#editSubmit input,
+#removeSubmit input {
   display: block;
   margin-top: 15px !important;
   margin-bottom: 15px !important;
   margin: 0 auto;
-  }
- 
-  form {
-    color: black;
-  }
-  .add-todo {
-    color: white;
-  }
-  
-.block1{
+  border-radius: 4px;
+}
+
+form {
+  color: black;
+}
+
+.add-todo {
+  color: white;
+}
+
+.add-todo:hover {
+  color: #009dae;
+}
+
+.block1 {
   display: block !important;
 }
 
-.right-main{
-  display: none;
-}
-
-.todo{
+.todo {
   margin-top: 1.2rem;
   width: 12rem;
-  border-radius: 2px;
 }
-.todo h2{
+
+.todoItem {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+  flex-wrap: wrap;
+}
+
+.todoItem:hover .hoverDiv{
+  display: block;
+}
+
+.todo h2 {
   color: white;
   font-weight: var(--ffBold);
 }
 
-.todo p{
- padding: 0.3rem;
- background-color: white;
+.todo p {
+  padding: 0.3rem;
+  background-color: white;
+  min-width: 8rem;
 }
 
-@media screen and (min-width: 800px) {
-  
-  .right-main{
-    display: block;
-  }
-
-        #leftArrow:hover,  #rightArrow:hover {
-          color: var( --mainBlue);
-        } 
-
-        ::placeholder{
-          padding-left: 0.4rem;
-        }
-
-        ::-webkit-datetime-edit { padding-left: 0.3rem; } 
-
-        .add-todo:hover{
-          color: var(--mainBlue);
-        }
+.hoverDiv {
+  display: none;
+  background-color: white;
+  padding: 0.2rem;
+  width: 100%;
 }
-
 
 @media screen and (min-width: 810px) {
-  aside{
-    width: 15rem;
-    height: 100vh;
-    background-color:var(--headerBlack);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* HEADER */
+
+  /* Header */
+
   header {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-/* MAIN - SIDEBAR */
+  /* Main - Aside */
+
+  aside {
+    width: 15rem;
+    height: 100vh;
+    background-color: var(--headerBlack);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   main {
     display: flex;
     flex-direction: row;
   }
-  #todo1{
+
+  .right-main {
+    width: 100%;
+    display: block;
+  }
+
+  /* Todos */
+
+  #todo1 {
     background-color: #23333e;
   }
 
@@ -212,9 +276,15 @@ aside{
     width: 92%;
   }
 
-  .right-main {
-    width: 100%;
+  ::placeholder {
+    padding-left: 0.4rem;
   }
+
+  ::-webkit-datetime-edit {
+    padding-left: 0.3rem;
+  }
+
+  /* Calender */
 
   .container {
     width: 100%;
@@ -222,11 +292,9 @@ aside{
     background-color: var(--Dark);
     color: #eee;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
   }
 
-  
-  /* CALENDER */
   .calender {
     background-color: var(--Dark);
     margin-top: 3rem;
@@ -277,11 +345,11 @@ aside{
     letter-spacing: 0.1rem;
   }
 
-.days {
+  .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
-}
+  }
 
   .days div {
     font-size: 1.4rem;
@@ -290,7 +358,7 @@ aside{
     display: flex;
     justify-content: end;
     padding: 0.2rem;
-    background-color:#009dae;
+    background-color: #009dae;
     width: 90px;
     height: 90px;
     border-radius: 10px;
@@ -303,21 +371,27 @@ aside{
     cursor: pointer;
   }
 
-.prev-date,
-.next-date{
-    opacity:0 ;
-}
+  .prev-date,
+  .next-date {
+    opacity: 0;
+  }
 
   .today {
     background-color: var(--currentGold) !important;
     color: var(--Dark) !important;
   }
+
+  #leftArrow:hover,
+  #rightArrow:hover {
+    color: var(--mainBlue);
+  }
 }
 
 @media screen and (max-width: 1100px) {
-  
-  /* CALENDER */
-  .calender {
+
+  /* Calender */
+
+ .calender {
     margin-top: 3rem;
     background-color: var(--Dark);
   }
@@ -338,13 +412,13 @@ aside{
     margin-left: 1rem;
   }
 
-  .calender-number{
+  .calender-number {
     font-size: 1.2rem !important;
   }
-  
+
   .day-active p {
-      font-size: 0.4rem;
-      padding-left: 0.2rem;
-      padding-right: 0.2rem;
+    font-size: 0.4rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
   }
 }

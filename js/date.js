@@ -1,4 +1,4 @@
-import { loadTodo } from "./storage.js";
+import { loadTodo, renderTodoList} from "./storage.js";
 
 
 export const date = new Date();
@@ -62,6 +62,7 @@ export async function renderCalender() {
     days += `<div class="next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
+  await loadTodo()
 }
 
 
@@ -72,7 +73,6 @@ export async function switchDate() {
       date.setFullYear(date.getFullYear())
     }
     renderCalender()
-    loadTodo()
     await renderHolidays(date.getFullYear())
   })
   document.getElementById("rightArrow").addEventListener("click", async () => {
@@ -81,7 +81,6 @@ export async function switchDate() {
       date.setFullYear(date.getFullYear())
     }
     renderCalender()
-    loadTodo()
     await renderHolidays(date.getFullYear())
   })
 }

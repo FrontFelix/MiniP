@@ -31,47 +31,18 @@ export async function newTodo(id, title, desc) {
         }
     }
 
-    localStorage.setItem('TodoList', JSON.stringify(todoLocal)) // @connor
+    localStorage.setItem('TodoList', JSON.stringify(todoLocal))
     let styledDiv
     styledDiv = document.getElementById(iD)
     if (!styledDiv) return
-    styledDiv.classList.add('test')
-
+    await loadTodo()
+    await renderTodoList()
 
 }
 
-export async function removeTodo(idInput) {
-    for (var todoItem of todoLocal) {
-        let innerTodo;
-        if (todoItem.ID === parseInt(idInput)) {
-            console.log(todoItem.list.length)
-            if (todoItem.list.length > 1) {
-                var arr1 = [1, 2, 3, 4],
-                    arr2 = [2, 4],
-                    res = arr1.filter(item => !arr2.includes(item));
-                console.log //
-                console.log(res);
-                // Loopa igenom den inre arrayen
-                for (innerTodo of todoItem.list) {
-                    console.log(innerTodo.title + " POSITION I ARRAY " + todoItem.list.indexOf(innerTodo.title))
-                }
-            } else if (todoItem.list.length === 1) {
-                // Ta bort den enskilda
-                console.log('Bara en')
-            }
-        }
-    }
-}
 
-export async function editTodo(idInput, activity, title, desc) {
-    for (var todoItem of todoLocal) {
-        if (idInput === todoItem.ID) {
-            todoItem.title = title
-            todoItem.description = desc
-            todoItem.activity = activity
-            localStorage.setItem('TodoList', JSON.stringify(todo))
-        }
-    }
+export async function editTodo(idInput, title, desc) {
+
 }
 
 
@@ -82,10 +53,10 @@ export async function loadTodo() {
             document.getElementById(todoItem.ID).style.backgroundColor = "blue"
         }
     }
+    renderTodoList()
 }
 
 export async function renderTodoList() {
-    if (!todoLocal) return
     for (var todoItem of todoLocal) {
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
@@ -94,19 +65,121 @@ export async function renderTodoList() {
         let datumText = document.createElement('h2')
         datumText.innerHTML = todoItem.ID
         bigTodoDiv.append(datumText)
+
+
         for (var innerItem of todoItem.list) {
-            console.log("Title " + innerItem.title + " place in array " + todoItem.list.findIndex(x => x.title === innerItem.title && x.desc === innerItem.desc))
             let arrayID = todoItem.list.findIndex(x => x.title === innerItem.title && x.desc === innerItem.desc)
+            
             let todoDiv = document.createElement('div')
             todoDiv.setAttribute('id', `${todoItem.ID}:${arrayID}`)
+            todoDiv.setAttribute('class', 'todoItem')
+            let hoverDiv = document.createElement('div')
+            let hoverDesc = document.createElement('p')
+            hoverDiv.setAttribute('class', 'hoverDiv')
+            hoverDesc.innerHTML = innerItem.desc
+            hoverDiv.append(hoverDesc)
+            let editDiv = document.createElement('div')
+            editDiv.setAttribute('class', "editForm")
+            let editForm = document.createElement('form')
+            let dateInput = document.createElement('input')
+            let titleInput = document.createElement('input')
+            let descInput = document.createElement('input')
+            let editSubmit = document.createElement('button')
+            dateInput.setAttribute("type", "date");
+            titleInput.setAttribute('placeholder', "Din Titel Här")
+            descInput.setAttribute('placeholder', "Din Desc Här")
+            editSubmit.innerText = "test"
+            editDiv.append(editForm)
+            editForm.append(dateInput, titleInput, descInput, editSubmit)
+
+
+
             let titleText = document.createElement('p')
+            let removeBtn = document.createElement('button')
+            let editBtn = document.createElement('button')
+            let removeIcon = document.createElement('i')
+            let editIcon = document.createElement('i')
+
+            editBtn.setAttribute('id', `${todoItem.ID}:${arrayID}`)
+            editBtn.setAttribute('class', 'editButton')
+            editIcon.setAttribute('class', 'far fa-edit')
+            editBtn.append(editIcon)
+
+            removeBtn.setAttribute('id', `${todoItem.ID}:${arrayID}`)
+            removeIcon.setAttribute('class', 'far fa-trash-alt')
+            removeBtn.append(removeIcon)
+            
             titleText.innerHTML = innerItem.title
             todoDiv.append(titleText)
+            todoDiv.append(removeBtn)
+            todoDiv.append(editBtn)
+            todoDiv.append(hoverDiv)
+            todoDiv.append(editDiv)
             bigTodoDiv.append(todoDiv)
+        
+
+            //removeBtn.addEventListener("click", removeTodo);
+            editBtn.addEventListener("click", () => {
+                editDiv.classList.toggle('block1')
+            });
+
+
+            removeBtn.onclick = function(){removeTodo(removeBtn.id)};  
+
         }
-        todoListDiv.append(bigTodoDiv)
+        let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
+        if(!checkDiv) {
+            todoListDiv.append(bigTodoDiv)
+        }
     }
 }
 
 
-//Ladda in todo, sen för varje ID på todo, leta efter det id på ett kalender datum. Lägg in todo aktiviteten.
+
+
+async function removeTodo(id) {
+    console.log(id)
+    var fields = id.split(':');
+    var date = parseInt(fields[0])
+    var arrayID = parseInt(fields[1])
+    let localPosition = todoLocal.findIndex(x => x.ID === date);
+
+
+    if(todoLocal[localPosition].list.length > 1) {
+        let todoInner
+        todo = todoLocal
+        // TA BORT OBJEKTET I LISTAN
+        console.log('Mer än ett object')
+        let innerItem = todoLocal[localPosition].list[arrayID]
+        console.log(innerItem)
+        todoInner = todoLocal[localPosition].list
+        todoInner = todoInner.filter(item => item.title != innerItem.title)
+        todo[localPosition].list = todoInner
+        localStorage.setItem('TodoList', JSON.stringify(todo))
+
+
+
+    }else {
+        // Ta bort hela OBJEKTET FRÅN MAIN LISTAN
+        console.log('Bara ett objekt')
+        todo = todoLocal
+        todo = todo.filter(item => item.ID != date)
+        localStorage.setItem('TodoList', JSON.stringify(todo))
+    }
+
+}
+
+
+
+
+
+export async function filterTodo(id) {
+    let todoID = parseInt(id)
+    // TodoListan Checkas IF STATEMENT
+    for(var todoItem of todoLocal) {
+        if(todoID !== todoItem.ID) return // Checkar ifall det finns något med det ID om inte så gör den inget
+        
+    } 
+
+}
+
