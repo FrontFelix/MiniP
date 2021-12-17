@@ -1,6 +1,6 @@
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
-import {newTodo, loadTodo, renderTodoList} from "./storage.js"
+import {newTodo, loadTodo, renderTodoList, filterTodo} from "./storage.js"
 
 renderCalender();
 switchDate();
@@ -29,3 +29,6 @@ if(todoList) {
 }
 
 renderTodoList()
+
+
+filterTodo(20211209)

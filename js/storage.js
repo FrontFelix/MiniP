@@ -176,9 +176,26 @@ async function removeTodo(id) {
 export async function filterTodo(id) {
     let todoID = parseInt(id)
     // TodoListan Checkas IF STATEMENT
+
+
     for(var todoItem of todoLocal) {
-        if(todoID !== todoItem.ID) return // Checkar ifall det finns något med det ID om inte så gör den inget
-        
+
+        if(todoItem.ID === todoID) {
+            console.log('FINNS ID ' + todoItem.ID)
+            let localPosition = todoLocal.findIndex(x => x.ID === todoID)
+            let innerList =  todoLocal[localPosition].list
+
+            
+
+
+        }else return
+
+        // Få fram arrayen med Todos från listan
+
+        // Gömma alla andra Todos
+
+        // Visa dem som finns i listan
+
     } 
 
 }
