@@ -28,9 +28,9 @@ export async function renderCalender() {
       "December",
     ];
   
-    document.getElementById("showMonths").innerHTML = months[date.getMonth()];
+    document.getElementById("render-months").innerHTML = months[date.getMonth()];
   
-    document.getElementById("showDay").innerHTML = new Date().toDateString();
+    document.getElementById("render-day").innerHTML = new Date().toDateString();
   
     let days = "";
   
