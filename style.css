@@ -84,7 +84,7 @@ aside {
 }
 
 .right-main {
-  display: none;
+display: none;
 }
 
 /* Todays date */
@@ -286,29 +286,27 @@ form {
 
   /* Calender */
 
-  .container {
+  .calender-cont {
     width: 100%;
     height: 100%;
     background-color: var(--Dark);
     color: #eee;
     display: flex;
     justify-content: center;
+  
   }
 
   .calender {
-    background-color: var(--Dark);
     margin-top: 3rem;
-  }
+} 
 
   .month {
     width: 100%;
     height: 3rem;
-    background-color: var(--Dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
-    text-align: center;
+    
   }
 
   .month p {

@@ -87,7 +87,7 @@ export async function switchDate() {
 }
 
 export async function renderHolidays(year) {
-  const response = await fetch(`http://sholiday.faboul.se/dagar/v2.1/${year}`);
+  const response = await fetch(`https://sholiday.faboul.se/dagar/v2.1/${year}`);
   const data = await response.json();
   const holidays = data.dagar.filter((day) => day.helgdag);
 
