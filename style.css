@@ -391,11 +391,11 @@ form {
     background-color: var(--Dark);
   }
 
-  .days {
+  #calender-days {
     gap: 0.1rem;
   }
 
-  .days div {
+  #calender-days div {
     width: 4.2rem;
     height: 4.2rem;
     gap: 1rem;
