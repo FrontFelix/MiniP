@@ -1,6 +1,3 @@
-import {
-    renderCalender
-} from "./date.js";
 
 
 var todo = [];
@@ -41,9 +38,6 @@ export async function newTodo(id, title, desc) {
 }
 
 
-export async function editTodo(idInput, title, desc) {
-
-}
 
 
 export async function loadTodo() {
@@ -81,9 +75,12 @@ export async function renderTodoList() {
             let editDiv = document.createElement('div')
             editDiv.setAttribute('class', "editForm")
             let editForm = document.createElement('form')
+            editForm.setAttribute('id', "editForm")
             let dateInput = document.createElement('input')
             let titleInput = document.createElement('input')
+            titleInput.setAttribute('required', true)
             let descInput = document.createElement('input')
+            descInput.setAttribute('required', true)
             let editSubmit = document.createElement('button')
             dateInput.setAttribute("type", "date");
             titleInput.setAttribute('placeholder', "Din Titel Här")
@@ -122,6 +119,18 @@ export async function renderTodoList() {
             editBtn.addEventListener("click", () => {
                 editDiv.classList.toggle('block1')
             });
+
+            editForm.addEventListener('submit', async e => {
+                e.preventDefault()
+                let parentDiv = editForm.parentNode
+                let id = parentDiv.parentNode.id
+                let inputs = editForm.elements;
+                let newDate = inputs[0]
+                let newTitle = inputs[1]
+                let newDesc = inputs[2]
+
+                editTodo(id, newDate, newTitle.value, newDesc.value)
+            })
 
 
             removeBtn.onclick = function(){removeTodo(removeBtn.id)};  
@@ -170,7 +179,29 @@ async function removeTodo(id) {
 }
 
 
+export async function editTodo(id, newDate, title, desc) {
 
+    if(!newDate.value) {
+        var fields = id.split(':');
+        todo = todoLocal
+        var date = parseInt(fields[0])
+        var arrayID = parseInt(fields[1])
+        let localPosition = todo.findIndex(x => x.ID === date);
+        let innerItem = todo[localPosition].list[arrayID]
+        innerItem.title = title
+        innerItem.desc = desc
+        console.log(innerItem)
+        localStorage.setItem('TodoList', JSON.stringify(todo))
+
+    }else {
+        newDate = newDate.value.replace('-', '');
+        newDate = newDate.replace('-', '')
+        newTodo(newDate, title, desc)
+        removeTodo(id)
+        
+    }
+
+}
 
 
 export async function filterTodo(id) {

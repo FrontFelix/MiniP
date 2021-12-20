@@ -1,3 +1,5 @@
+
+
 function todo1() {
     let x = document.getElementById('todo1');
     x.classList.toggle('block1')
@@ -20,10 +22,6 @@ function dropmenu() {
     let down = document.getElementById('dropmenu');
     down.classList.toggle('block1')
 }
-
-
-
-
 
 
 

@@ -8,6 +8,8 @@ renderHolidays(date.getFullYear())
 
 
 const newSubmit = document.getElementById('newSubmit')
+let editForm = document.getElementById('editForm')
+
 newSubmit.addEventListener('submit',async e => {
     e.preventDefault()
     let datum = document.getElementById("newDatum")
@@ -20,6 +22,12 @@ newSubmit.addEventListener('submit',async e => {
     newSubmit.reset()
     document.getElementById('todo1').classList.remove('block1')
 })
+
+/*editForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    let parentDiv = editForm.parentNode
+    console.log(parentDiv.parentNode.id)
+})*/
 
 
 
