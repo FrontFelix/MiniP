@@ -38,8 +38,6 @@ export async function newTodo(id, title, desc) {
 }
 
 
-
-
 export async function loadTodo() {
     if (!todoLocal) return;
     for (var todoItem of todoLocal) {
