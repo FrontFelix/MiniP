@@ -23,6 +23,16 @@ newSubmit.addEventListener('submit',async e => {
     document.getElementById('todo1').classList.remove('block1')
 })
 
+
+let daysDiv = document.getElementById('calender-days').childNodes
+
+
+for(let i = 0; i < daysDiv.length; i++) {
+    daysDiv[i].addEventListener('click', () => {
+        filterTodo(daysDiv[i].id)
+    })
+}
+
 /*editForm.addEventListener('submit', async e => {
     e.preventDefault()
     let parentDiv = editForm.parentNode

@@ -207,27 +207,24 @@ export async function editTodo(id, newDate, title, desc) {
 export async function filterTodo(id) {
     let todoID = parseInt(id)
     // TodoListan Checkas IF STATEMENT
-
-
     for(var todoItem of todoLocal) {
-
-        if(todoItem.ID === todoID) {
-            console.log('FINNS ID ' + todoItem.ID)
-            let localPosition = todoLocal.findIndex(x => x.ID === todoID)
-            let innerList =  todoLocal[localPosition].list
-
-            
-
-
-        }else return
+        if(todoID === todoItem.ID) {
+            let todoList = document.getElementById('todoList')
+            let todoListChildren = document.getElementById('todoList').childNodes
+            for(let i = 0; i < todoListChildren.length; i++) {
+                todoList.remove(todoListChildren[i])
+            }
+            for(var innerItem of todoItem.list) {
+                console.log(innerItem)
+            }
+        }
+    }
 
         // Få fram arrayen med Todos från listan
 
         // Gömma alla andra Todos
 
-        // Visa dem som finns i listan
-
-    } 
+        // Visa dem som finns i lista
 
 }
 
