@@ -29,7 +29,11 @@ export async function renderCalender() {
     let days = "";
   
     for (let x = firstDay; x > 0; x--) {
-      days += `<div class="prev-date">${ prevLastDay - x}</div>`;
+      let prevDate = document.createElement('div')
+      prevDate.setAttribute('class', 'prev-date')
+      let pTest = document.createElement('p')
+      pTest.innerHTML = prevLastDay - x;
+      prevDate.append(pTest)
     }
   
     for (let i = 1; i <= lastDay; i++) {
@@ -37,12 +41,20 @@ export async function renderCalender() {
         let dateMonth = date.getMonth() + 1;
         dateMonth = ("0" + dateMonth).slice(-2)
         let id = ("0" + i).slice(-2)
-        days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active"><p class="calender-number">${i}</p></div>`; // hör days
+
+       let todayDiv = document.createElement('div')
+       todayDiv.setAttribute('class', 'today day-active')
+       todayDiv.setAttribute('id', `${date.getFullYear()}${dateMonth}${id}`)
+       let todayP = document.createElement('p')
+       todayP.setAttribute('class', 'calender-number')
+       todayP.innerHTML = i;
+       todayDiv.append(todayP)
+
+
       } else {
         let dateMonth = date.getMonth() + 1;
         dateMonth = ("0" + dateMonth).slice(-2)
         let id = ("0" + i).slice(-2)
-        days += `<div class="day-active" id="${date.getFullYear()}${dateMonth}${id}"><p class="calender-number">${i}</p></div>`;
 
         let daysDiv = document.createElement('div')
         daysDiv.setAttribute('class', 'days-active')
@@ -55,8 +67,14 @@ export async function renderCalender() {
       }
     }
     for (let j = 1; j <= nextDays; j++) {
-      days += `<div class="next-date">${j}</div>`;
-      monthDays.innerHTML = days; // Calender-days.append(days)
+      //days += `<div class="next-date">${j}</div>`;
+      let nextDate = document.createElement('div')
+      nextDate.setAttribute('class', 'next-date')
+      let pTag = document.createElement('p')
+      pTag.innerHTML = j;
+      prevDate.append(pTag)
+      //monthDays.innerHTML = days; 
+      monthDays.append(days);
     }
     //await renderTodoList()
   }
