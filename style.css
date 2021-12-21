@@ -42,7 +42,6 @@
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   font-size: 0.6rem;
-  margin-bottom: -10rem;
 }
 
 /* Header */
@@ -277,7 +276,7 @@ form {
 
   aside {
     width: 15rem;
-    height: 100vh;
+
     background-color: var(--headerBlack);
     display: flex;
     flex-direction: column;

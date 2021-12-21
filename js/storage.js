@@ -34,25 +34,16 @@ export async function newTodo(id, title, desc) {
     //await loadTodo()
     await renderTodoList()
 
+
 }
 
 
 
 export async function renderTodoList() {
-
-
     for (var todoItem of todoLocal) {
-
-        if (document.getElementById(todoItem.ID)) {
-            document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
-            if(document.getElementById(`list-${todoItem.ID}`)) return
-            let arrayList = document.createElement('p')
-            arrayList.setAttribute('id', `list-${todoItem.ID}`)
-            arrayList.setAttribute('class', 'todoListNumber')
-            arrayList.innerHTML = todoItem.list.length
-            document.getElementById(todoItem.ID).append(arrayList)
-        }
-
+        console.log(todoLocal)
+        console.log('LOOPAR IGENOM VARJE ITEM I LISTAN')
+        console.log(todoItem)
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
         bigTodoDiv.setAttribute('class', 'todo')
@@ -67,6 +58,7 @@ export async function renderTodoList() {
 
 
         for (var innerItem of todoItem.list) {
+            console.log('LOOPAR IGENOM VARJE LISTAN I OBJEKTET')
             let arrayID = todoItem.list.findIndex(x => x.title === innerItem.title && x.desc === innerItem.desc)
             
             let todoDiv = document.createElement('div')
@@ -143,10 +135,23 @@ export async function renderTodoList() {
 
         }
 
-        let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
-        if(!checkDiv) {
+            let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
+            console.log('Sätt in Todos')
             todoListDiv.append(bigTodoDiv)
-        }
+            console.log('-------------------------')
+
+            if (document.getElementById(todoItem.ID)) { // FUCK UP
+                document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
+                if(document.getElementById(`list-${todoItem.ID}`)) return
+                let arrayList = document.createElement('p')
+                arrayList.setAttribute('id', `list-${todoItem.ID}`)
+                arrayList.setAttribute('class', 'todoListNumber')
+                arrayList.innerHTML = todoItem.list.length
+                document.getElementById(todoItem.ID).append(arrayList)
+    
+                console.log('Om id finns')
+                console.log('------------------------------')
+            }
     }
 }
 
@@ -183,6 +188,7 @@ async function removeTodo(id) {
         localStorage.setItem('TodoList', JSON.stringify(todo))
     }
 
+
 }
 
 
@@ -208,30 +214,52 @@ export async function editTodo(id, newDate, title, desc) {
         
     }
 
+
 }
 
 
 export async function filterTodo(id) {
-    let todoID = parseInt(id)
     // TodoListan Checkas IF STATEMENT
+
+    console.log(id)
     let todoListDiv = document.getElementById('todoList')
 
-    if(todoListDiv.childNodes.length - 1 !== todoLocal.length) {
+    if(todoLocal.length + 1 !== todoListDiv.childNodes.length) {
+        console.log('Inte samma')
         renderTodoList()
     }
 
-
     for(var todoItem of todoLocal) {
-        if(todoID === todoItem.ID) {
-            // Skapa todosen
-            for(var innerItem of todoItem.list) {
-                console.log(todoListDiv)
-            }
-        }else if(todoItem !== todoID) {
-            let removeDiv = document.getElementById(`todo-${todoItem.ID}`)
-            todoListDiv.removeChild(removeDiv)
+        if(parseInt(id) !== todoItem.ID) {
+            todoListDiv.removeChild(document.getElementById(`todo-${todoItem.ID}`))
         }
     }
+
+
+    /*if(todoListDiv.childNodes.length - 1 !== todoLocal.length) {
+
+        renderTodoList()
+    }*/
+
+    /*if(todoListDiv.childNodes.length - 1 === todoLocal.length) {
+        console.log('ÄR LIKA MYCKET')
+        for(var todoItem of todoLocal) {
+            if(todoID === todoItem.ID) {
+                // Skapa todosen
+                for(var innerItem of todoItem.list) {
+                    console.log(todoListDiv)
+                }
+            }else if(todoItem !== todoID) {
+                let removeDiv = document.getElementById(`todo-${todoItem.ID}`)
+                todoListDiv.removeChild(removeDiv)
+            }
+        }
+    }else{
+        renderTodoList()
+    }*/
+
+
+
 
         // Få fram arrayen med Todos från listan
 
