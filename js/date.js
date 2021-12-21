@@ -37,17 +37,26 @@ export async function renderCalender() {
         let dateMonth = date.getMonth() + 1;
         dateMonth = ("0" + dateMonth).slice(-2)
         let id = ("0" + i).slice(-2)
-        days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active"><p class="calender-number">${i}</p></div>`;
+        days += `<div id="${date.getFullYear()}${dateMonth}${id}" class = "today day-active"><p class="calender-number">${i}</p></div>`; // hör days
       } else {
         let dateMonth = date.getMonth() + 1;
         dateMonth = ("0" + dateMonth).slice(-2)
         let id = ("0" + i).slice(-2)
         days += `<div class="day-active" id="${date.getFullYear()}${dateMonth}${id}"><p class="calender-number">${i}</p></div>`;
+
+        let daysDiv = document.createElement('div')
+        daysDiv.setAttribute('class', 'days-active')
+        daysDiv.setAttribute('id', `${date.getFullYear()}${dateMonth}${id}`)
+        let daysP = document.createElement('p')
+        daysP.setAttribute('class', 'calender-number')
+        daysP.innerHTML = i;
+        daysDiv.append(daysP)
+
       }
     }
     for (let j = 1; j <= nextDays; j++) {
       days += `<div class="next-date">${j}</div>`;
-      monthDays.innerHTML = days;
+      monthDays.innerHTML = days; // Calender-days.append(days)
     }
     //await renderTodoList()
   }
