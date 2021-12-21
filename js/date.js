@@ -13,19 +13,8 @@ export async function renderCalender() {
   const nextDays = 7 - lastDays;
  
   
-    const months = [
-      "Januari",
-      "Februari",
-      "Mars",
-      "April",
-      "Maj",
-      "Juni",
-      "July",
-      "Agusti",
-      "September",
-      "Okteber",
-      "November",
-      "December",
+    const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "July",
+      "Agusti", "September", "Okteber", "November", "December",
     ];
   
     document.getElementById("render-months").innerHTML = months[date.getMonth()];
@@ -55,7 +44,7 @@ export async function renderCalender() {
       days += `<div class="next-date">${j}</div>`;
       monthDays.innerHTML = days;
     }
-    await renderTodoList()
+    //await renderTodoList()
   }
   
   

@@ -48,9 +48,8 @@ if(todoList) {
 
 
 let showAll = document.getElementById('showAllTodos')
-showAll.addEventListener('click', () => {
+showAll.addEventListener('click', async () => {
     renderTodoList()
 })
 
-renderTodoList()
 
