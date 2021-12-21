@@ -132,7 +132,7 @@ padding-bottom: 0.6rem;
 .editForm input {
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
-  background-color: var(--Dark);
+  background-color: #23333e;
   color: white;
   width: 11rem;
   margin-left: 0.1rem;
@@ -434,7 +434,6 @@ form {
   #calender-days div {
     width: 4.2rem;
     height: 4.2rem;
-    gap: 1rem;
   }
 
   .veckodagar {

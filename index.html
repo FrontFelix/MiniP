@@ -11,7 +11,6 @@
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script defer type="module" src="./js/index.js" defer></script>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="./frontend.js"></script>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
            
             <!-- TODOS -->
                 <div>
-                    <button class="todo-btn" onclick="todo1()">Lägg till</button>
+                    <button class="todo-btn" onclick="todo1()">Lägg till händelse</button>
                 </div>
 
                 <div id="todo1">
@@ -82,5 +81,13 @@
     </main>
 
 </body>
+
+<script>
+    function todo1() {
+    let x = document.getElementById('todo1');
+    x.classList.toggle('block1')
+    }
+
+</script>
 
 </html>

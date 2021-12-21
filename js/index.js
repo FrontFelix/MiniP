@@ -1,3 +1,5 @@
+/** Import functions from date.js and storage.js */
+
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
 import {newTodo, renderTodoList, filterTodo} from "./storage.js"
@@ -7,6 +9,7 @@ switchDate();
 renderHolidays(date.getFullYear())
 
 
+/** Get id from buttons */
 const newSubmit = document.getElementById('newSubmit')
 let editForm = document.getElementById('editForm')
 
@@ -28,9 +31,10 @@ let daysDiv = document.getElementById('calender-days').childNodes
 
 
 for(let i = 0; i < daysDiv.length; i++) {
-    daysDiv[i].addEventListener('click', () => {
-        filterTodo(daysDiv[i].id)
+    daysDiv[i].addEventListener('click', () => { // u see we get the correct fucking shit id
+        filterTodo(daysDiv[i].id)        
     })
+    
 }
 
 /*editForm.addEventListener('submit', async e => {
@@ -41,15 +45,18 @@ for(let i = 0; i < daysDiv.length; i++) {
 
 
 
+
 let todoList = JSON.parse(localStorage.getItem('TodoList'))
 if(todoList) {
     await renderTodoList()
 }
 
 
+/** Onclick event render todolist */
 let showAll = document.getElementById('showAllTodos')
 showAll.addEventListener('click', async () => {
-    renderTodoList()
-})
+    renderTodoList();    
+}
+)
 
 

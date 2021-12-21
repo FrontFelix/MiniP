@@ -1,7 +1,9 @@
+/**  */
 var todo = [];
 
 let todoLocal = localStorage.getItem('TodoList') ? JSON.parse(localStorage.getItem('TodoList')) : [];
 
+/** Export newTodo function */
 export async function newTodo(id, title, desc) {
     let iD = parseInt(id)
     let obj = {}
@@ -31,19 +33,34 @@ export async function newTodo(id, title, desc) {
     styledDiv = document.getElementById(iD)
     if (!styledDiv) return
 
-    //await loadTodo()
     await renderTodoList()
 
 
 }
 
 
-
+/** Render Todo list */
 export async function renderTodoList() {
-    for (var todoItem of todoLocal) {
-        console.log(todoLocal)
-        console.log('LOOPAR IGENOM VARJE ITEM I LISTAN')
-        console.log(todoItem)
+
+    
+
+    for (let todoItem of todoLocal) {
+
+        if (document.getElementById(todoItem.ID)) { // FUCK UP
+            document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
+            if(document.getElementById(`list-${todoItem.ID}`)) return
+            let arrayList = document.createElement('p')
+            arrayList.setAttribute('id', `list-${todoItem.ID}`)
+            arrayList.setAttribute('class', 'todoListNumber')
+            arrayList.innerHTML = todoItem.list.length
+            document.getElementById(todoItem.ID).append(arrayList)
+
+            //console.log('Om id finns')
+            //console.log('------------------------------')
+        }
+        //console.log(todoLocal)
+        //console.log('LOOPAR IGENOM VARJE ITEM I LISTAN')
+        //console.log(todoItem)
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
         bigTodoDiv.setAttribute('class', 'todo')
@@ -57,8 +74,8 @@ export async function renderTodoList() {
 
 
 
-        for (var innerItem of todoItem.list) {
-            console.log('LOOPAR IGENOM VARJE LISTAN I OBJEKTET')
+        for (let innerItem of todoItem.list) {
+            //console.log('LOOPAR IGENOM VARJE LISTAN I OBJEKTET')
             let arrayID = todoItem.list.findIndex(x => x.title === innerItem.title && x.desc === innerItem.desc)
             
             let todoDiv = document.createElement('div')
@@ -132,32 +149,19 @@ export async function renderTodoList() {
 
 
             removeBtn.onclick = function(){removeTodo(removeBtn.id)};  
-
         }
 
             let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
-            console.log('Sätt in Todos')
+            if(checkDiv) continue
+            //console.log('Sätt in Todos')
             todoListDiv.append(bigTodoDiv)
-            console.log('-------------------------')
-
-            if (document.getElementById(todoItem.ID)) { // FUCK UP
-                document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
-                if(document.getElementById(`list-${todoItem.ID}`)) return
-                let arrayList = document.createElement('p')
-                arrayList.setAttribute('id', `list-${todoItem.ID}`)
-                arrayList.setAttribute('class', 'todoListNumber')
-                arrayList.innerHTML = todoItem.list.length
-                document.getElementById(todoItem.ID).append(arrayList)
-    
-                console.log('Om id finns')
-                console.log('------------------------------')
-            }
+            //console.log('-------------------------')
     }
 }
 
 
 
-
+/** Delete todo from todo list */
 async function removeTodo(id) {
     console.log(id)
     var fields = id.split(':');
@@ -191,7 +195,7 @@ async function removeTodo(id) {
 
 }
 
-
+/** Edit a todo in todo list */
 export async function editTodo(id, newDate, title, desc) {
 
     if(!newDate.value) {
@@ -217,55 +221,35 @@ export async function editTodo(id, newDate, title, desc) {
 
 }
 
-
+/** Filter todos on a chosen day */
 export async function filterTodo(id) {
     // TodoListan Checkas IF STATEMENT
-
-    console.log(id)
     let todoListDiv = document.getElementById('todoList')
 
-    if(todoLocal.length + 1 !== todoListDiv.childNodes.length) {
-        console.log('Inte samma')
-        renderTodoList()
-    }
+    let items = todoLocal.find(x => x.ID == id);
+    if (items) {
+        for(let todoItem of todoLocal)  {
 
-    for(var todoItem of todoLocal) {
-        if(parseInt(id) !== todoItem.ID) {
-            todoListDiv.removeChild(document.getElementById(`todo-${todoItem.ID}`))
-        }
-    }
-
-
-    /*if(todoListDiv.childNodes.length - 1 !== todoLocal.length) {
-
-        renderTodoList()
-    }*/
-
-    /*if(todoListDiv.childNodes.length - 1 === todoLocal.length) {
-        console.log('ÄR LIKA MYCKET')
-        for(var todoItem of todoLocal) {
-            if(todoID === todoItem.ID) {
-                // Skapa todosen
-                for(var innerItem of todoItem.list) {
-                    console.log(todoListDiv)
+            if(todoLocal.length + 1 === todoListDiv.childNodes.length) {
+                if(todoItem.ID != items.ID) {
+                    let todoListItems = todoListDiv.childNodes
+                    for(let div of todoListItems) {
+                        if(div.id !== `todo-${id}`) {
+                            if(div.id) {
+                                todoListDiv.removeChild(div)
+                            }
+                        }
+                    }
                 }
-            }else if(todoItem !== todoID) {
-                let removeDiv = document.getElementById(`todo-${todoItem.ID}`)
-                todoListDiv.removeChild(removeDiv)
+            }else {
+                // Render the gay list which dosent work
             }
         }
-    }else{
-        renderTodoList()
-    }*/
 
 
-
-
-        // Få fram arrayen med Todos från listan
-
-        // Gömma alla andra Todos
-
-        // Visa dem som finns i lista
-
+    } else {
+        //render list again here because items undefined
+        //
+    }
 }
 
