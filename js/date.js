@@ -1,4 +1,4 @@
-import { loadTodo, renderTodoList} from "./storage.js";
+import { renderTodoList} from "./storage.js";
 
 
 export const date = new Date();
@@ -55,7 +55,7 @@ export async function renderCalender() {
       days += `<div class="next-date">${j}</div>`;
       monthDays.innerHTML = days;
     }
-    await loadTodo()
+    await renderTodoList()
   }
   
   

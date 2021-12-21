@@ -98,6 +98,19 @@ display: none;
 
 /* Todos */
 
+#showAllTodos{
+color: white;
+margin-top: 1.2rem;
+background-color: #23333e;
+width: 14rem;
+height: 3rem;
+border-radius: 4px;
+}
+
+#showAllTodos:hover {
+  background-color:  #009dae;
+}
+
 .editForm{
   display: none;
 }
@@ -132,9 +145,6 @@ display: none;
 
 #todo1 {
   width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
   color: white;
   text-align: center;
   display: none;
@@ -144,9 +154,9 @@ display: none;
   background-color: #23333e;
   color: white;
   width: 14rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   border-radius: 4px;
+  height: 3rem;
+  text-align: center;
 }
 
 .todo-btn:hover {
@@ -267,7 +277,18 @@ form {
   }
 
   /* Todos */
-
+  .todoListNumber{
+    border-radius: 50%;
+    width: 25px !important;
+    padding-top: 2px;
+    height: 25px;
+    background-color: var(--Dark);
+    font-size: 1rem !important;
+    margin: 0 auto;
+    border-radius: 50%;
+    
+  }
+  
   #todo1 {
     background-color: #23333e;
   }

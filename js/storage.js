@@ -1,5 +1,3 @@
-
-
 var todo = [];
 
 let todoLocal = localStorage.getItem('TodoList') ? JSON.parse(localStorage.getItem('TodoList')) : [];
@@ -10,7 +8,7 @@ export async function newTodo(id, title, desc) {
     let innerlist = []
     let innerobj = {}
 
-    //If localStorage empty / unset, return empty array. if not, return localStorage item. I am lost. Quick call? Sure 
+    
     obj["ID"] = iD
     obj["list"] = innerlist
 
@@ -32,31 +30,40 @@ export async function newTodo(id, title, desc) {
     let styledDiv
     styledDiv = document.getElementById(iD)
     if (!styledDiv) return
-    await loadTodo()
+
+    //await loadTodo()
     await renderTodoList()
 
 }
 
 
-export async function loadTodo() {
-    if (!todoLocal) return;
-    for (var todoItem of todoLocal) {
-        if (document.getElementById(todoItem.ID)) {
-            document.getElementById(todoItem.ID).style.backgroundColor = "blue"
-        }
-    }
-    renderTodoList()
-}
 
 export async function renderTodoList() {
+
+
     for (var todoItem of todoLocal) {
+
+        if (document.getElementById(todoItem.ID)) {
+            document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
+            if(document.getElementById(`list-${todoItem.ID}`)) return
+            let arrayList = document.createElement('p')
+            arrayList.setAttribute('id', `list-${todoItem.ID}`)
+            arrayList.setAttribute('class', 'todoListNumber')
+            arrayList.innerHTML = todoItem.list.length
+            document.getElementById(todoItem.ID).append(arrayList)
+        }
+
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
         bigTodoDiv.setAttribute('class', 'todo')
         bigTodoDiv.setAttribute('id', `todo-${todoItem.ID}`)
         let datumText = document.createElement('h2')
+        let arrayList = document.createElement('h2')
+        arrayList.innerText = `Todos att göra ${todoItem.list.length}`
         datumText.innerHTML = todoItem.ID
         bigTodoDiv.append(datumText)
+        bigTodoDiv.append(arrayList)
+
 
 
         for (var innerItem of todoItem.list) {
@@ -111,7 +118,7 @@ export async function renderTodoList() {
             todoDiv.append(hoverDiv)
             todoDiv.append(editDiv)
             bigTodoDiv.append(todoDiv)
-        
+
 
             //removeBtn.addEventListener("click", removeTodo);
             editBtn.addEventListener("click", () => {
@@ -134,6 +141,7 @@ export async function renderTodoList() {
             removeBtn.onclick = function(){removeTodo(removeBtn.id)};  
 
         }
+
         let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
         if(!checkDiv) {
             todoListDiv.append(bigTodoDiv)
@@ -205,16 +213,22 @@ export async function editTodo(id, newDate, title, desc) {
 export async function filterTodo(id) {
     let todoID = parseInt(id)
     // TodoListan Checkas IF STATEMENT
+    let todoListDiv = document.getElementById('todoList')
+
+    if(todoListDiv.childNodes.length - 1 !== todoLocal.length) {
+        renderTodoList()
+    }
+
+
     for(var todoItem of todoLocal) {
         if(todoID === todoItem.ID) {
-            let todoList = document.getElementById('todoList')
-            let todoListChildren = document.getElementById('todoList').childNodes
-            for(let i = 0; i < todoListChildren.length; i++) {
-                todoList.remove(todoListChildren[i])
-            }
+            // Skapa todosen
             for(var innerItem of todoItem.list) {
-                console.log(innerItem)
+                console.log(todoListDiv)
             }
+        }else if(todoItem !== todoID) {
+            let removeDiv = document.getElementById(`todo-${todoItem.ID}`)
+            todoListDiv.removeChild(removeDiv)
         }
     }
 

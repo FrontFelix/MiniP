@@ -1,6 +1,6 @@
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
-import {newTodo, loadTodo, renderTodoList, filterTodo} from "./storage.js"
+import {newTodo, renderTodoList, filterTodo} from "./storage.js"
 
 renderCalender();
 switchDate();
@@ -43,10 +43,14 @@ for(let i = 0; i < daysDiv.length; i++) {
 
 let todoList = JSON.parse(localStorage.getItem('TodoList'))
 if(todoList) {
-    await loadTodo()
+    await renderTodoList()
 }
+
+
+let showAll = document.getElementById('showAllTodos')
+showAll.addEventListener('click', () => {
+    renderTodoList()
+})
 
 renderTodoList()
 
-
-filterTodo(20211209)
