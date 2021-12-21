@@ -59,7 +59,7 @@ export async function renderTodoList() {
         bigTodoDiv.setAttribute('id', `todo-${todoItem.ID}`)
         let datumText = document.createElement('h2')
         let arrayList = document.createElement('h2')
-        arrayList.innerText = `Todos att göra ${todoItem.list.length}`
+        arrayList.innerText = `Händelser ${todoItem.list.length}`
         datumText.innerHTML = todoItem.ID
         bigTodoDiv.append(datumText)
         bigTodoDiv.append(arrayList)
@@ -87,10 +87,11 @@ export async function renderTodoList() {
             let descInput = document.createElement('input')
             descInput.setAttribute('required', true)
             let editSubmit = document.createElement('button')
+            editSubmit.setAttribute("class", "edit-button");
             dateInput.setAttribute("type", "date");
-            titleInput.setAttribute('placeholder', "Din Titel Här")
-            descInput.setAttribute('placeholder', "Din Desc Här")
-            editSubmit.innerText = "test"
+            titleInput.setAttribute('placeholder', "Titel")
+            descInput.setAttribute('placeholder', "Beskrivning")
+            editSubmit.innerText = "Ändra"
             editDiv.append(editForm)
             editForm.append(dateInput, titleInput, descInput, editSubmit)
 
