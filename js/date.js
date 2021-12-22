@@ -27,9 +27,9 @@ export async function renderCalender() {
   
 
     let days = "";
-  
+    let prevDate
     for (let x = firstDay; x > 0; x--) {
-      let prevDate = document.createElement('div')
+      prevDate = document.createElement('div')
       prevDate.setAttribute('class', 'prev-date')
       let pTest = document.createElement('p')
       pTest.innerHTML = prevLastDay - x;
@@ -63,7 +63,7 @@ export async function renderCalender() {
         daysP.setAttribute('class', 'calender-number')
         daysP.innerHTML = i;
         daysDiv.append(daysP)
-
+        monthDays.append(daysDiv);
       }
     }
     for (let j = 1; j <= nextDays; j++) {
@@ -74,7 +74,6 @@ export async function renderCalender() {
       pTag.innerHTML = j;
       prevDate.append(pTag)
       //monthDays.innerHTML = days; 
-      monthDays.append(days);
     }
     //await renderTodoList()
   }

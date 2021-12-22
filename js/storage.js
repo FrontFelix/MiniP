@@ -39,28 +39,8 @@ export async function newTodo(id, title, desc) {
 }
 
 
-/** Render Todo list */
-export async function renderTodoList() {
-
-    
-
+export async function renderSideDiv() {
     for (let todoItem of todoLocal) {
-
-        if (document.getElementById(todoItem.ID)) { // FUCK UP
-            document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
-            if(document.getElementById(`list-${todoItem.ID}`)) return
-            let arrayList = document.createElement('p')
-            arrayList.setAttribute('id', `list-${todoItem.ID}`)
-            arrayList.setAttribute('class', 'todoListNumber')
-            arrayList.innerHTML = todoItem.list.length
-            document.getElementById(todoItem.ID).append(arrayList)
-
-            //console.log('Om id finns')
-            //console.log('------------------------------')
-        }
-        //console.log(todoLocal)
-        //console.log('LOOPAR IGENOM VARJE ITEM I LISTAN')
-        //console.log(todoItem)
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
         bigTodoDiv.setAttribute('class', 'todo')
@@ -156,6 +136,30 @@ export async function renderTodoList() {
             //console.log('Sätt in Todos')
             todoListDiv.append(bigTodoDiv)
             //console.log('-------------------------')
+    }
+}
+
+
+/** Render Todo list */
+export async function renderTodoList() {
+
+    
+
+    for (let todoItem of todoLocal) {
+
+        if (document.getElementById(todoItem.ID)) { // FUCK UP
+            document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
+            if(document.getElementById(`list-${todoItem.ID}`)) return
+            let arrayList = document.createElement('p')
+            arrayList.setAttribute('id', `list-${todoItem.ID}`)
+            arrayList.setAttribute('class', 'todoListNumber')
+            arrayList.innerHTML = todoItem.list.length
+            document.getElementById(todoItem.ID).append(arrayList)
+        }
+
+        
+        renderSideDiv()
+
     }
 }
 
