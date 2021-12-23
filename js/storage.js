@@ -1,9 +1,9 @@
-/**  */
+/** Todo array */
 var todo = [];
 
 let todoLocal = localStorage.getItem('TodoList') ? JSON.parse(localStorage.getItem('TodoList')) : [];
 
-/** Export newTodo function */
+/** NewTodo Function that can be imported in other files */
 export async function newTodo(id, title, desc) {
     let iD = parseInt(id)
     let obj = {}
@@ -23,7 +23,6 @@ export async function newTodo(id, title, desc) {
             innerlist.push(innerobj)
             todoLocal.push(obj)
         } else {
-            console.log('If entry exist');
             entry.list.push(innerobj);
         }
     }
@@ -34,17 +33,20 @@ export async function newTodo(id, title, desc) {
     if (!styledDiv) return
 
     await renderTodoList()
-
+    location.reload()
 
 }
 
 
 export async function renderSideDiv() {
+    // Every todo-div created in loop
     for (let todoItem of todoLocal) {
         let todoListDiv = document.getElementById('todoList')
         let bigTodoDiv = document.createElement('div')
         bigTodoDiv.setAttribute('class', 'todo')
         bigTodoDiv.setAttribute('id', `todo-${todoItem.ID}`)
+
+
         let datumText = document.createElement('h2')
         let arrayList = document.createElement('h2')
         arrayList.innerText = `Händelser ${todoItem.list.length}`
@@ -53,9 +55,8 @@ export async function renderSideDiv() {
         bigTodoDiv.append(arrayList)
 
 
-
+        // In the loop Todo-Items are created with help from DOM 
         for (let innerItem of todoItem.list) {
-            //console.log('LOOPAR IGENOM VARJE LISTAN I OBJEKTET')
             let arrayID = todoItem.list.findIndex(x => x.title === innerItem.title && x.desc === innerItem.desc)
             
             let todoDiv = document.createElement('div')
@@ -107,6 +108,8 @@ export async function renderSideDiv() {
             todoDiv.append(editBtn)
             todoDiv.append(hoverDiv)
             todoDiv.append(editDiv)
+
+
             bigTodoDiv.append(todoDiv)
 
 
@@ -133,9 +136,7 @@ export async function renderSideDiv() {
 
             let checkDiv = document.getElementById(`todo-${todoItem.ID}`)
             if(checkDiv) continue
-            //console.log('Sätt in Todos')
             todoListDiv.append(bigTodoDiv)
-            //console.log('-------------------------')
     }
 }
 
@@ -147,7 +148,7 @@ export async function renderTodoList() {
 
     for (let todoItem of todoLocal) {
 
-        if (document.getElementById(todoItem.ID)) { // FUCK UP
+        if (document.getElementById(todoItem.ID)) {
             document.getElementById(todoItem.ID).style.backgroundColor = "#09646e"
             if(document.getElementById(`list-${todoItem.ID}`)) return
             let arrayList = document.createElement('p')
@@ -167,7 +168,6 @@ export async function renderTodoList() {
 
 /** Delete todo from todo list */
 async function removeTodo(id) {
-    console.log(id)
     var fields = id.split(':');
     var date = parseInt(fields[0])
     var arrayID = parseInt(fields[1])
@@ -177,25 +177,24 @@ async function removeTodo(id) {
     if(todoLocal[localPosition].list.length > 1) {
         let todoInner
         todo = todoLocal
-        // TA BORT OBJEKTET I LISTAN
-        console.log('Mer än ett object')
         let innerItem = todoLocal[localPosition].list[arrayID]
-        console.log(innerItem)
         todoInner = todoLocal[localPosition].list
         todoInner = todoInner.filter(item => item.title != innerItem.title)
         todo[localPosition].list = todoInner
         localStorage.setItem('TodoList', JSON.stringify(todo))
 
+        renderSideDiv()
 
 
     }else {
-        // Ta bort hela OBJEKTET FRÅN MAIN LISTAN
-        console.log('Bara ett objekt')
         todo = todoLocal
         todo = todo.filter(item => item.ID != date)
         localStorage.setItem('TodoList', JSON.stringify(todo))
+
+        renderSideDiv()
     }
 
+    location.reload()
 
 }
 
@@ -211,7 +210,6 @@ export async function editTodo(id, newDate, title, desc) {
         let innerItem = todo[localPosition].list[arrayID]
         innerItem.title = title
         innerItem.desc = desc
-        console.log(innerItem)
         localStorage.setItem('TodoList', JSON.stringify(todo))
 
     }else {
@@ -222,38 +220,32 @@ export async function editTodo(id, newDate, title, desc) {
         
     }
 
+    location.reload()
 
 }
 
 /** Filter todos on a chosen day */
 export async function filterTodo(id) {
-    // TodoListan Checkas IF STATEMENT
+
     let todoListDiv = document.getElementById('todoList')
 
     let items = todoLocal.find(x => x.ID == id);
     if (items) {
         for(let todoItem of todoLocal)  {
-
-            if(todoLocal.length + 1 === todoListDiv.childNodes.length) {
-                if(todoItem.ID != items.ID) {
-                    let todoListItems = todoListDiv.childNodes
-                    for(let div of todoListItems) {
-                        if(div.id !== `todo-${id}`) {
-                            if(div.id) {
-                                todoListDiv.removeChild(div)
-                            }
+            if(!document.getElementById(`todo-${id}`)) {
+                renderSideDiv()
+            }
+            if(todoItem.ID != items.ID) {
+                let todoListItems = todoListDiv.childNodes
+                for(let div of todoListItems) {
+                    if(div.id !== `todo-${id}`) {
+                        if(div.id) {
+                            todoListDiv.removeChild(div)
                         }
                     }
                 }
-            }else {
-                // Render the gay list which dosent work
             }
         }
-
-
-    } else {
-        //render list again here because items undefined
-        //
     }
 }
 

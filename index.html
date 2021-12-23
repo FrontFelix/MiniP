@@ -22,34 +22,33 @@
     <main>
         <aside>
             <p id="render-day"></p>
-           
             <!-- TODOS -->
-                <div>
-                    <button class="todo-btn" onclick="todo1()">Lägg till händelse</button>
-                </div>
+            <div>
+                <button class="todo-btn" onclick="todo1()">Lägg till händelse</button>
+            </div>
 
-                <div id="todo1">
-                    <form id="newSubmit">
-                        <label for="date"></label>
-                        <input class="date-input" id="newDatum" type="date" placeholder="Datum"> 
-                        <label for="title"></label>
-                        <input class="todo-input" id="newTitel" type="title" placeholder="Titel">
-                        <label for="text"></label>
-                        <input class="todo-input" id="newDesc" type="text" placeholder="Beskrivning">
-                        <button class="add-todo" type="submit">Slutför TODO</button>
-                    </form> 
-                </div>
-                <button id="showAllTodos">Visa alla händelser</button>
-    <!-- Javascript Inputs Here -->
-<div id="todoList" class="todo-list">
-        </div>
-      <!-- Javascript Inputs Here -->
+            <div id="todo1">
+                <form id="newSubmit">
+                    <label for="date"></label>
+                    <input class="date-input" id="newDatum" type="date" placeholder="Datum"> 
+                    <label for="title"></label>
+                    <input class="todo-input" id="newTitel" type="title" placeholder="Titel">
+                    <label for="text"></label>
+                    <input class="todo-input" id="newDesc" type="text" placeholder="Beskrivning">
+                    <button class="add-todo" type="submit">Slutför TODO</button>
+                </form> 
+            </div>
+            <button id="showAllTodos">Visa alla händelser</button>
+            <!-- Javascript Inputs Here -->
+            <div id="todoList" class="todo-list">
+            </div>
+            <!-- Javascript Inputs Here -->
         </aside>
-     <!-- TODOS -->
+            <!-- TODOS -->
 
+
+            <!-- CALENDER -->   
         <div class="right-main">
-                
-                    <!-- CALENDER -->   
            
             <div class="calender-cont">
                 <div class="calender">
@@ -60,6 +59,9 @@
                         </div>
                         <p id="rightArrow"><i class="fas fa-chevron-right"></i></p>
                     </div>
+
+
+                    <!-- Weekdays -->
                     <ul class="dayshow">
                       
                         <li>Sön</li>
@@ -71,23 +73,32 @@
                         <li>Lör</li>
                        
                     </ul>
+                    <!-- Weekdays -->
+
+
+                    <!-- Calender Days (1,2,3,4,5) etc-->
+                    <!-- Load with JAVASCRIPT DATE.JS-->
                     <div id="calender-days">
                     </div>
+                    <!-- Load with JAVASCRIPT DATE.JS-->
+                    <!-- Calender Days (1,2,3,4,5) etc-->
+
                 </div>
             </div>
         </div>
-        <!-- CALENDER -->   
-
+            <!-- CALENDER -->   
     </main>
 
 </body>
 
+
+<!-- Script for adding todos -->
 <script>
     function todo1() {
-    let x = document.getElementById('todo1');
-    x.classList.toggle('block1')
+        let x = document.getElementById('todo1');
+        x.classList.toggle('block1')
     }
-
 </script>
+<!-- Script for adding todos -->
 
 </html>

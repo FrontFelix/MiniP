@@ -2,7 +2,9 @@
 
 import { renderCalender, switchDate, renderHolidays, date} from "./date.js";
 
-import {newTodo, renderTodoList, filterTodo} from "./storage.js"
+import {newTodo, renderTodoList, filterTodo, renderSideDiv} from "./storage.js"
+
+/** Import functions from date.js and storage.js */
 
 renderCalender();
 switchDate();
@@ -31,17 +33,11 @@ let daysDiv = document.getElementById('calender-days').childNodes
 
 
 for(let i = 0; i < daysDiv.length; i++) {
-    daysDiv[i].addEventListener('click', () => { // u see we get the correct fucking shit id
+    daysDiv[i].addEventListener('click', () => { 
         filterTodo(daysDiv[i].id)        
     })
     
 }
-
-/*editForm.addEventListener('submit', async e => {
-    e.preventDefault()
-    let parentDiv = editForm.parentNode
-    console.log(parentDiv.parentNode.id)
-})*/
 
 
 
@@ -52,10 +48,10 @@ if(todoList) {
 }
 
 
-/** Onclick event render todolist */
+/** Onclick event render all todos in todo list */
 let showAll = document.getElementById('showAllTodos')
 showAll.addEventListener('click', async () => {
-    renderTodoList();    
+    renderSideDiv();   
 }
 )
 

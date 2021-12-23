@@ -22,6 +22,7 @@ Användaren ska sen kunna se sina `todos`i en listvy, både i `desktop` och i `m
 8. Innan vi slutade för dagen så bestämde vi för vilken del vi ska arbeta med nästkommande tillfälle. 
 9. Efter vi känt oss mestadels klar med både `frontend-branch` och `JS-branch` så gjorde vi en `merge` till våran `main`.
 10. Efter våran merge så fick vi göra en del justeringar då en del `CSS`inte stämde överens med våran `HTML-kod`.
+11. Efter många om och men med våran `JavaScript` så fick vi tillslut till en fullt fungerande `kalender`.  
 
 <br>
 
@@ -30,6 +31,7 @@ Vi stötte på en del utmaningar under projektet.
 1. En utamning var att få till en `merge` med alla `branches` via `GitHub`. 
 2. En annan utmaning var att länka in `todos` med `JavaScript`.
 3. En till utmaning vi haft under projektet var `todo-listan`. 
+4. En stor utmaning som vi hade var att efter vi gjort en `commit` med våran `JavaScript` så stämde den inte överens med den kod som fungerande innan, vilket ledde till att vi fick försöka bryta ner koden i smådelar och hitta problemen. 
 
 <br>
 
